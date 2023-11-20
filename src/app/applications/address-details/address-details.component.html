@@ -1,0 +1,126 @@
+  
+<div class="row">
+    <div class="col-8">
+        <form [formGroup]="addressDetailsForm">
+            <div class="form_cnt mt-0">
+              <h3>Where is your current address.</h3>
+          
+              <div class="row">
+                <div class="col-lg-4 col-sm-6">
+                    <mat-form-field class="w-100">
+                        <mat-label>Country</mat-label>
+                        <mat-select formControlName="contactCountryId">
+                            <mat-option value="1">Algeria</mat-option>
+                        </mat-select>
+                    </mat-form-field>
+                </div>                    
+                <div class="col-lg-4 col-sm-6">
+                  <mat-form-field class="w-100">
+                    <mat-label>State</mat-label>
+                    <mat-select formControlName="contactProvinceName">
+                        <mat-option value="1">Alabama</mat-option>
+                    </mat-select>
+                  </mat-form-field>
+                </div>                
+              </div>
+              <div class="row">
+                <div class="col-lg-4 col-sm-6">
+                    <mat-form-field class="w-100">
+                        <mat-label>City</mat-label>
+                        <mat-select formControlName="contactCityName">
+                            <mat-option value="1">Texas</mat-option>
+                        </mat-select>
+                    </mat-form-field>
+                </div>
+                <div class="col-lg-3 col-sm-6">
+                  <mat-form-field class="w-100">
+                    <mat-label>Postal Code</mat-label>
+                    <input matInput formControlName="contactPostalCode">
+                  </mat-form-field>
+                </div>
+                <div class="col-lg-4 col-sm-6">
+                    <mat-form-field class="w-100">
+                      <mat-label>Home Phone</mat-label>
+                      <input matInput formControlName="contactHomeTelephoneNumber">
+                    </mat-form-field>
+                </div>
+                <span class="bold_text mt-3 d-inline-block w-100 required">Is your current address same as permanent address?</span>
+                <div class="form_row">
+                  <div class="row mt-2 mb-4">
+                    <div class="col-6">
+                      <label origEnter tabindex="0" class="radio_custom" [class.checked]="sameAsPermanent" (click)="sameAsPermanent = true"> Yes 
+                        <input tabindex="-1" type="radio" id="yes" [value]="true">
+                        <span class="material-icons"> done </span>
+                      </label>
+                    </div>
+                    <div class="col-6">
+                      <label origEnter tabindex="0" class="radio_custom" [class.checked]="!sameAsPermanent" (click)="sameAsPermanent = false"> No 
+                        <input tabindex="-1" type="radio" id="no" [value]="false">
+                        <span class="material-icons"> done </span>
+                      </label>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          
+            <div class="form_cnt">
+              <h3>Permanent Address</h3>
+              <div class="row">
+                <div class="col-lg-4 col-sm-6">
+                    <mat-form-field class="w-100">
+                        <mat-label>Country</mat-label>
+                        <mat-select formControlName="permanentCountryId">
+                            <mat-option value="1">Algeria</mat-option>
+                        </mat-select>
+                    </mat-form-field>
+                </div>                    
+                <div class="col-lg-4 col-sm-6">
+                  <mat-form-field class="w-100">
+                    <mat-label>State</mat-label>
+                    <mat-select formControlName="permanentProvinceName">
+                        <mat-option value="1">Alabama</mat-option>
+                    </mat-select>
+                  </mat-form-field>
+                </div>                
+              </div>
+              <div class="row">
+                <div class="col-lg-4 col-sm-6">
+                    <mat-form-field class="w-100">
+                        <mat-label>City</mat-label>
+                        <mat-select formControlName="permanentCityName">
+                            <mat-option value="1">Texas</mat-option>
+                        </mat-select>
+                    </mat-form-field>
+                </div>
+                <div class="col-lg-3 col-sm-6">
+                  <mat-form-field class="w-100">
+                    <mat-label formControlName="permanentPostalCode">Postal Code</mat-label>
+                    <input matInput>
+                  </mat-form-field>
+                </div>
+                <div class="col-lg-4 col-sm-6">
+                    <mat-form-field class="w-100">
+                      <mat-label>Home Phone</mat-label>
+                      <input matInput formControlName="permanentHomeTelephoneNumber">
+                    </mat-form-field>
+                </div>
+              </div>
+            </div>
+          
+            <div class="btn_row">
+              <button type="button" mat-stroked-button color="primary" class="secondary_button mt-2 d-flex ms-auto me-3" aria-label="Back" routerLink="/home/applications/personal-details"><mat-icon class="md-22">chevron_left</mat-icon> Back</button>
+              <button type="button" mat-flat-button color="primary" class="primary_button mt-2 d-flex"  routerLink="/home/applications/educational-details">Next<mat-icon class="md-22" iconPositionEnd>chevron_right</mat-icon></button>
+            </div>
+        </form>
+    </div>
+    <div class="col-4">
+        <app-stepper [stepIndex]="3" class="d-none d-sm-block mob-hidden"></app-stepper>
+    </div>
+</div>
+
+  
+  
+  
+  
+  

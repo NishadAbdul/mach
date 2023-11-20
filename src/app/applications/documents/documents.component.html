@@ -1,0 +1,42 @@
+<div class="row">
+    <div class="col-8">
+        <div class="form_cnt mt-0">
+            <h3>Documents needed</h3>
+            <p>There are documents we will need from you before your application can be completed.
+              <small class="d-block mb-4 mt-2">Supported file formats: Acrobat (.pdf), Excel (.xls, xlsx), Word (.doc, .docx), Image (.jpeg, .png, .gif). Maximum File Size: 15MB</small>
+            </p>
+            <div class="row">
+              <div class="col-xl-4 col-sm-6 mb-2" *ngFor="let doc of documents">
+                <div class="file_upload" [class.field--invalid]="(touched && !doc?.uploaded) || sizeInvalid[doc?.identifier] || typeInvalid[doc?.identifier]" appDragDrop (fileDropped)="uploadDocument($event, doc?.identifier)" [class.active]="doc?.uploaded">
+                    <h4 [matTooltip]="doc?.name" [matTooltipDisabled]="doc?.name?.length < 36">{{doc?.name | truncate: 35}}</h4>
+                    <input type="file" [attr.aria-label]="doc?.name" id="document{{doc?.name}}" (change)="initiateUpload($event, doc?.identifier)">
+                    <p *ngIf="!doc?.uploaded; else files">Drop here or <label for="document{{doc?.name}}">select file</label></p>  
+                    <ng-template #files>
+                      <p><span class="file-name" [matTooltip]="doc?.fileName" [matTooltipDisabled]="doc?.fileName?.length < 37">{{doc?.fileName ? (doc?.fileName | truncate: 36) : 'File Name not found'}}</span> <a href="javascript: void(0)" (click)="confirmDelete(doc)">DELETE</a> </p> 
+                    </ng-template>           
+                    <label for="file{{doc?.name}}" class="upload_icon">
+                      <span class="material-icons" *ngIf="doc?.uploaded; else upload">done</span>
+                      <ng-template #upload><span class="material-icons">cloud_upload</span></ng-template>                                    
+                  </label>
+                </div>
+                <div class="mat-mdc-form-field-subscript-wrapper mat-mdc-form-field-bottom-align">            
+                  <div class="mat-mdc-form-field-error-wrapper">
+                    <mat-error *ngIf="touched && !doc?.uploaded && !sizeInvalid[doc?.identifier] && !typeInvalid[doc?.identifier]">{{doc?.name}} is required</mat-error>
+                    <mat-error *ngIf="sizeInvalid[doc?.identifier]">Exceeds maximum file size limit</mat-error>
+                    <mat-error *ngIf="typeInvalid[doc?.identifier]">File type not supported</mat-error>
+                  </div>
+                </div>
+                
+              </div>
+            </div>
+          </div>
+        
+          <div class="btn_row mt-4">
+            <button mat-stroked-button color="primary" class="secondary_button mt-2 d-flex ms-auto me-3" aria-label="Skip" routerLink="/home/applications/program-prefrences">I will upload later</button>
+            <button mat-stroked-button color="primary" class="secondary_button mt-2 d-flex me-3" aria-label="Back" routerLink="/home/applications/educational-details"><mat-icon class="md-22 m-0">chevron_left</mat-icon></button>
+            <button mat-flat-button color="primary" class="primary_button mt-2 d-flex" routerLink="/home/applications/program-prefrences">Next<mat-icon class="md-22" iconPositionEnd>chevron_right</mat-icon></button>
+          </div>
+    </div>
+    <div class="col-4">
+        <app-stepper [stepIndex]="5" class="d-none d-sm-block mob-hidden"></app-stepper>
+    </div>

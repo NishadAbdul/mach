@@ -1,0 +1,46 @@
+<aside class="aside_wrp">
+  <div class="wizard_block">
+    <ul class="main">
+      <li [class.active]="stepIndex === 1" [class.completed]="stepIndex > 1" step="1">
+        <div class="wizard_cnt">
+          <div >Guidlines</div>
+        </div>
+      </li>
+      <li [class.active]="stepIndex === 2" [class.completed]="stepIndex > 2" step="2">
+        <div class="wizard_cnt">
+          <div >Personal Information</div>
+        </div>
+      </li>
+      <li  [class.active]="stepIndex === 3" [class.completed]="stepIndex > 3" step="3">
+        <div class="wizard_cnt">
+          <div >Terms & Conditions</div>
+        </div>
+      </li>
+      <li [class.active]="stepIndex === 4" [class.completed]="stepIndex > 4" step="4">
+        <div class="wizard_cnt">
+          <div >Confirmation</div>
+        </div>
+      </li>
+    </ul>
+  </div>
+
+  <footer class="footer_cnt">
+    <div class="ftr_link">
+      <ul class="copy_right">
+        <li>
+          MACH &copy; 2023
+
+          <ul class="links">
+            <li>
+              <a href="#" class="privacy">Privacy</a>
+            </li>
+            <li>
+              <a href="#">Security</a>
+            </li>
+          </ul>
+
+        </li>          
+      </ul>
+    </div>
+  </footer>
+</aside>

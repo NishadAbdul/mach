@@ -1,0 +1,10 @@
+<div class="dialog_title">
+    <h5>{{title}}</h5>
+</div>
+<div mat-dialog-content class="max-h-auto">
+    <p>{{message}}</p>
+    <div class="btn_row justify-content-center pb-4">
+        <button mat-stroked-button color="primary" class="secondary_button confirm_button mt-2 d-flex ms-auto me-2" (click)="onDismiss()">No</button>
+        <button mat-flat-button color="primary" class="primary_button mt-2 d-flex confirm_button"  (click)="onConfirm()">Yes</button>
+    </div>
+</div>

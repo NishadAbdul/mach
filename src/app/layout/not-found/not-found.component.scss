@@ -1,0 +1,102 @@
+.not-found-container {
+    h1 {
+        font-size: 76px;
+        font-weight: 600;
+        color: #525872;
+        margin-top: 40vh;
+
+        &::before {
+            content: "404";
+            font-size: 133px;
+            position: absolute;
+            text-align: center;
+            opacity: .2;
+            margin-top: -64px;
+        }
+
+        span {
+            position: absolute;
+            left: calc(50% + 80px);
+            margin-top: -105px;
+
+            i {
+                font-size: 90px;
+            }
+        }
+    }
+    button {
+        background-color: #525872;
+        color: #fff;
+        border: 0px;
+        border-radius: 10px;
+        padding: 9px 18px;
+        margin-top: 10px;
+        &:hover {
+            opacity: .7;
+            i {
+                transform: scale(1);
+                transform: translate(7px);
+            }
+        }
+        i {
+            font-size: 14px;
+            vertical-align: middle;
+            transform: scale(0.8);
+            transition: color 0.2s ease, background-color 0.2s ease, transform 0.3s ease;
+        }
+    }
+}
+
+@keyframes spin {
+    from {
+        transform:rotate(0deg);
+    }
+    to {
+        transform:rotate(360deg);
+    }
+}
+
+.spin {
+  animation-name: spin;
+  animation-duration: 25000ms;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+}
+
+@media (max-width: 433px) {
+    .not-found-container {
+        h1 {
+            font-size: 60px;
+            &::before {
+                font-size: 112px;
+                margin-top: -50px;
+            }
+            span {
+                margin-top: -80px;
+                left: calc(50% + 70px);
+                i {
+                    font-size: 70px;
+                }
+            }
+        }
+    }
+}
+
+@media (max-width: 320px) {
+    .not-found-container {
+        h1 {
+            font-size: 40px;
+            &::before {
+                font-size: 90px;
+                margin-top: -35px;
+            }
+            span {
+                margin-top: -60px;
+                left: calc(50% + 60px);
+                i {
+                    font-size: 40px;
+                }
+            }
+        }
+    }
+}

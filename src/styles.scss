@@ -1,1 +1,89 @@
-/* You can add global styles to this file, and also import other style files */
+@use '@angular/material' as mat;
+@import url('https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css');
+@import url('https://unpkg.com/@angular/material@16.2.1/prebuilt-themes/indigo-pink.css');
+@import url('https://fonts.googleapis.com/css2?family=League+Spartan:wght@800&family=Roboto:wght@300;400;500;700&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Material+Icons|Material+Icons+Outlined&display=swap');
+
+.ng2-pdf-viewer-container {
+  overflow-x: hidden !important;
+}
+
+@include mat.core();
+
+$primary-palette: (
+  50 : var(--mach-primary-50),
+  100 : var(--mach-primary-100),
+  200 : var(--mach-primary-200),
+  300 : var(--mach-primary-300),
+  400 : var(--mach-primary-400),
+  500 : var(--mach-primary-500),
+  600 : var(--mach-primary-600),
+  700 : var(--mach-primary-700),
+  800 : var(--mach-primary-800),
+  900 : var(--mach-primary-900),
+  A100 : var(--mach-primary-A100),
+  A200 : var(--mach-primary-A200),
+  A400 : var(--mach-primary-A400),
+  A700 : var(--mach-primary-A700),
+  contrast: (
+    50: var(--mach-primary-contrast-50),
+    100: var(--mach-primary-contrast-100),
+    200: var(--mach-primary-contrast-200),
+    300: var(--mach-primary-contrast-300),
+    400: var(--mach-primary-contrast-400),
+    500: var(--mach-primary-contrast-500),
+    600: var(--mach-primary-contrast-600),
+    700: var(--mach-primary-contrast-700),
+    800: var(--mach-primary-contrast-800),
+    900: var(--mach-primary-contrast-900),
+    A100: var(--mach-primary-contrast-A100),
+    A200: var(--mach-primary-contrast-A200),
+    A400: var(--mach-primary-contrast-A400),
+    A700: var(--mach-primary-contrast-A700),
+  )
+);
+
+$secondary-palette: (
+  50 : var(--mach-secondary-50),
+  100 : var(--mach-secondary-100),
+  200 : var(--mach-secondary-200),
+  300 : var(--mach-secondary-300),
+  400 : var(--mach-secondary-400),
+  500 : var(--mach-secondary-500),
+  600 : var(--mach-secondary-600),
+  700 : var(--mach-secondary-700),
+  800 : var(--mach-secondary-800),
+  900 : var(--mach-secondary-900),
+  A100 : var(--mach-secondary-A100),
+  A200 : var(--mach-secondary-A200),
+  A400 : var(--mach-secondary-A400),
+  A700 : var(--mach-secondary-A700),
+  contrast: (
+    50: var(--mach-secondary-contrast-50),
+    100: var(--mach-secondary-contrast-100),
+    200: var(--mach-secondary-contrast-200),
+    300: var(--mach-secondary-contrast-300),
+    400: var(--mach-secondary-contrast-400),
+    500: var(--mach-secondary-contrast-500),
+    600: var(--mach-secondary-contrast-600),
+    700: var(--mach-secondary-contrast-700),
+    800: var(--mach-secondary-contrast-800),
+    900: var(--mach-secondary-contrast-900),
+    A100: var(--mach-secondary-contrast-A100),
+    A200: var(--mach-secondary-contrast-A200),
+    A400: var(--mach-secondary-contrast-A400),
+    A700: var(--mach-secondary-contrast-A700),
+  )
+);
+
+$mach-theme-primary: mat.define-palette($primary-palette);
+$mach-theme-secondary: mat.define-palette($secondary-palette);
+$mach-theme: mat.define-light-theme((
+ color: (
+   primary: $mach-theme-primary,
+   accent: $mach-theme-secondary
+ ),
+ density: -2
+));
+@include mat.core-theme($mach-theme);
+@include mat.button-theme($mach-theme);

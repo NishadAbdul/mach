@@ -1,0 +1,91 @@
+<div class="row">
+    <div class="col-8">
+        <div class="form_cnt mt-0">
+            <h3>Rafel Rodriguez</h3>
+            <p>Course Name | Course ID | 2022-2023</p>
+            <p>    
+                <button class="edit-btn ms-0" color="primary" mat-flat-button><mat-icon>edit</mat-icon>Edit Details</button>
+                <button class="edit-btn ms-1" color="accent" mat-flat-button><mat-icon>download</mat-icon> Download</button>
+            </p>
+            
+                <mat-card>
+                    <mat-card-content class="p-0 pb-2">
+                        <div class="review-head">
+                            <h6>Personal Details</h6>
+                            <button mat-mini-fab color="primary" class="fr-fab ms-auto">
+                                <mat-icon>edit</mat-icon>
+                            </button>
+                        </div>
+                        <div class="row">
+                            <div class="col-6">
+                                <div class="user-details">
+                                    <span>Full Name</span><strong>Rafel Rodriguez</strong>
+                                </div>
+                                <div class="user-details">
+                                    <span>Date of Birth</span><strong>10th Sep 1944</strong>
+                                </div>
+                                <div class="user-details">
+                                    <span>Father's Name</span><strong>San Antonio</strong>
+                                </div>
+                            </div>
+                            <div class="col-6">
+                                <div class="user-details">
+                                    <span>Gender</span><strong>Male</strong>
+                                </div>
+                                <div class="user-details">
+                                    <span>Email</span><strong>a&#64;a.com</strong>
+                                </div>
+                                <div class="user-details">
+                                    <span>Phone</span><strong>+1 546638368</strong>
+                                </div>
+                            </div>
+                        </div>
+                    </mat-card-content>
+                </mat-card>
+                
+            
+                <mat-card class="mt-4">
+                    <mat-card-content class="p-0 pb-2">
+                        <div class="review-head">
+                            <h6>Address Details</h6>
+                            <button mat-mini-fab color="primary" class="fr-fab ms-auto">
+                                <mat-icon>edit</mat-icon>
+                            </button>
+                        </div>
+                        <div class="row">
+                            <div class="col-6">
+                                <div class="user-details">
+                                    <span>Address</span><strong>Apt 1, Microsoft Way</strong>
+                                </div>
+                                <div class="user-details">
+                                    <span>City</span><strong>Redmond </strong>
+                                </div>
+                                <div class="user-details">
+                                    <span>State</span><strong>Washington</strong>
+                                </div>
+                            </div>
+                            <div class="col-6">
+                                <div class="user-details">
+                                    <span>Zip</span><strong>98052</strong>
+                                </div>
+                                <div class="user-details">
+                                    <span>Phone</span><strong>(425) 882-8080</strong>
+                                </div>
+                                <div class="user-details">
+                                    <span>Email</span><strong>example&#64;example2.com</strong>
+                                </div>
+                            </div>
+                        </div>
+                    </mat-card-content>
+                </mat-card>
+            <div class="btn_row col-sm-12 pe-2" *ngIf="isEdit">
+                <button mat-stroked-button color="primary" class="secondary_button mt-2 d-flex ms-auto me-2" aria-label="Back">Cancel</button>
+                <button mat-flat-button color="primary" class="primary_button mt-2 d-flex">Save</button>
+            </div>
+        </div>
+    </div>
+    <div class="col-4">
+        <app-stepper [stepIndex]="8" class="d-none d-sm-block mob-hidden"></app-stepper>
+    </div>
+</div>
+

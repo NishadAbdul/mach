@@ -1,0 +1,18 @@
+<div class="row">
+    <div class="col-sm-12">
+        <div class="progress-container">
+            <div class="pie-wrapper style-2" [ngClass]="stepper.class">
+              <span class="label">{{stepper.index}}/4</span>
+              <div class="pie">
+                <div class="left-side half-circle"></div>
+                <div class="right-side half-circle"></div>
+              </div>
+              <div class="shadow"></div>
+            </div>
+            <div class="step-label">                
+                <h5>{{stepper.label}}</h5>
+                <p class="mb-0"> {{stepper.index < 4 ? 'Next: ' : ''}}{{stepper.next}}</p>
+            </div>
+        </div>
+    </div>
+</div>

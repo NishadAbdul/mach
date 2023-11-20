@@ -1,0 +1,44 @@
+.confirmation-container {
+    display: flex;
+    flex-direction: column;
+    margin-top: 1rem;
+    text-align: center;
+    
+    .icon-holder {
+        justify-content: center;
+        display: flex;
+        margin-bottom: 20px;
+        .done-icon {
+            height: 74px;
+            width: 74px;
+            border: 6px solid green;
+            border-radius: 50%;
+            
+            .mat-icon {
+                color: green;
+                font-size: 50px;
+                padding: 5px;
+                height: 100%;
+                width: 100%;
+                font-weight: bold;
+            }
+        }
+    }
+    p {
+        margin-top: 1rem;
+    }
+    .account-holder {
+        margin: 0 auto !important;
+        width: 50%;
+        padding: 2rem;
+        text-align: left;
+        h3 {
+            font-size: 1.25rem !important;
+        }
+        .confirmation-number {
+            font-weight: bold;
+            text-transform: uppercase;
+            color: green;
+        }
+    }
+}

@@ -1,0 +1,125 @@
+  
+<div class="row">
+    <div class="col-8">
+        <form [formGroup]="educationalDetailsForm">
+            <div class="form_cnt mt-0">
+              <h3>Educational Details</h3>
+          
+              <div class="row">
+                <div class="col-lg-4 col-sm-6">
+                    <mat-form-field class="w-100">
+                        <mat-label>Graduation Country</mat-label>
+                        <mat-select>
+                            <mat-option value="1">Algeria</mat-option>
+                        </mat-select>
+                    </mat-form-field>
+                </div>                    
+                <div class="col-lg-4 col-sm-6">
+                  <mat-form-field class="w-100">
+                    <mat-label>State</mat-label>
+                    <mat-select>
+                        <mat-option value="1">Alabama</mat-option>
+                    </mat-select>
+                  </mat-form-field>
+                </div> 
+                <div class="col-lg-4 col-sm-6">
+                    <mat-form-field class="w-100">
+                        <mat-label>City</mat-label>
+                        <mat-select>
+                            <mat-option value="1">Texas</mat-option>
+                        </mat-select>
+                    </mat-form-field>
+                </div>               
+              </div>
+              <div class="row">                
+                <div class="col-lg-4 col-sm-6">
+                  <mat-form-field class="w-100">
+                    <mat-label>School</mat-label>
+                    <mat-select>
+                        <mat-option value="1">Texas</mat-option>
+                    </mat-select>
+                  </mat-form-field>
+                </div>
+                <div class="col-lg-4 col-sm-6">
+                    <mat-form-field class="w-100">
+                        <mat-label>High School Type</mat-label>
+                        <mat-select>
+                            <mat-option value="1">Texas</mat-option>
+                        </mat-select>
+                      </mat-form-field>
+                </div>
+                <div class="col-lg-4 col-sm-6">
+                    <mat-form-field class="w-100">
+                        <mat-label>Graduation Year</mat-label>
+                        <mat-select>
+                            <mat-option value="1">Texas</mat-option>
+                        </mat-select>
+                      </mat-form-field>
+                </div>
+              </div>
+            </div>  
+                    
+            <mat-card class="mt-4">
+                <mat-card-content>
+                    <div class="table-responsive">
+                        <table mat-table [dataSource]="dataSource" class="table-container">
+                            <ng-container matColumnDef="exam">
+                                <th mat-header-cell *matHeaderCellDef> Exam </th>
+                                <td mat-cell *matCellDef="let element">{{element.exam}}</td>
+                            </ng-container>
+                        
+                            <ng-container matColumnDef="scoringMethodology">
+                                <th mat-header-cell *matHeaderCellDef> Scoring Methodology </th>
+                                <td mat-cell *matCellDef="let element">{{element.scoringMethodology}}</td>
+                            </ng-container>
+                        
+                            <ng-container matColumnDef="score">
+                                <th mat-header-cell *matHeaderCellDef> Score </th>
+                                <td mat-cell *matCellDef="let element">{{element.score}}</td>
+                            </ng-container>
+
+                            <ng-container matColumnDef="weightage">
+                                <th mat-header-cell *matHeaderCellDef> Calculated Weightage </th>
+                                <td mat-cell *matCellDef="let element">{{element.weightage}}</td>
+                            </ng-container>
+                        
+                            <ng-container matColumnDef="date">
+                                <th mat-header-cell *matHeaderCellDef> Exam Date </th>
+                                <td mat-cell *matCellDef="let element">{{element.date}}</td>
+                            </ng-container>
+                        
+                            <ng-container matColumnDef="action">
+                                <th mat-header-cell *matHeaderCellDef> Action </th>
+                                <td mat-cell *matCellDef="let element">
+                                    <button mat-mini-fab color="primary" class="fr-fab">
+                                        <mat-icon>edit</mat-icon>
+                                      </button>
+                                </td>
+                            </ng-container>
+                        
+                            <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                            <tr mat-row *matRowDef="let row; let even = even; columns: displayedColumns;" [ngClass]="{'bg-light': even}"></tr>
+                        </table>
+                        
+                    </div>
+        
+                </mat-card-content>
+            </mat-card>
+            
+          
+            <div class="btn_row mt-4">
+              <button type="button" mat-stroked-button color="primary" class="secondary_button mt-2 d-flex ms-auto me-3" aria-label="Back" routerLink="/home/applications/address-details"><mat-icon class="md-22">chevron_left</mat-icon> Back</button>
+              <button type="button" mat-flat-button color="primary" class="primary_button mt-2 d-flex"  routerLink="/home/applications/documents">Next<mat-icon class="md-22" iconPositionEnd>chevron_right</mat-icon></button>
+            </div>
+        </form>
+    </div>
+    <div class="col-4">
+        <app-stepper [stepIndex]="4" class="d-none d-sm-block mob-hidden"></app-stepper>
+    </div>
+</div>
+
+  
+  
+  
+  
+  

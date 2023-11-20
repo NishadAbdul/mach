@@ -1,0 +1,12 @@
+<mat-dialog-content>
+    <div class="row">
+        <div class="col-sm-12 text-center">
+            <mat-icon ngClass="{{class=== 'text-primary' ? 'bg-primary' : ''}}" aria-hidden="false" aria-label="Example home icon">{{ icon }}</mat-icon>
+            <h2 class="{{class}}">{{title}}</h2>
+        </div>
+        <div [innerHTML]="message" class="message"></div>
+    </div>
+</mat-dialog-content>
+<mat-dialog-actions align="center">
+    <button mat-raised-button mat-dialog-close color="primary" class="primary_button my-4">{{buttonLabel}}</button>
+</mat-dialog-actions>

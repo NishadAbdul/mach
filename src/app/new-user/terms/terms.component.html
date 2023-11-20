@@ -1,0 +1,27 @@
+
+<div class="col-sm-12 mt-4">
+    <h3>Terms and Conditions</h3>
+
+    <div class="disclosure_cnt" [formGroup]="termsForm">
+      <ol class="mt-4">
+        <li>
+            The information contain in the Information Brochure is only for general guidance and should not be treated as legal document. It could be changed / modified from time to time by Competent Authority of MACHS(Mohammed AI-Mana College For Medical Sciences).
+        </li>
+        <li>
+            MACHS(Mohammed AI-Mana College For Medical Sciences) reserves its right to cancel the admission of successful Candidate under any of the following circumstances:
+            <ul>
+                <li>If the fee is not deposited by the stipulated date.</li>
+                <li>If the candidate does not join the particular programme by the stipulated date even though the Fee has been deposited.</li>
+            </ul>
+        </li>
+      </ol>
+      
+      <mat-checkbox color="primary" class="disclosure_check mt-2" formControlName="termsAcknowledged">
+        I have read and agreed to the terms and conditions.
+      </mat-checkbox>
+      <mat-error class="orig-warning" *ngIf="!termsForm.get('termsAcknowledged')?.valid && termsForm.get('termsAcknowledged')?.touched && termsForm.controls['termsAcknowledged']?.value !== true">
+        Please check the acknowledgement.
+     </mat-error>
+      <button mat-raised-button type="submit" color="primary" class="primary_button my-4 d-flex ms-auto" (click)="confirmSubmit()">Submit<mat-icon class="md-22" iconPositionEnd>chevron_right</mat-icon></button>
+    </div>
+  </div>

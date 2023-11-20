@@ -1,0 +1,65 @@
+<div class="row">
+    <div class="col-sm-12">
+        <div class="confirmation-container mt-5">
+            <div class="icon-holder">
+                <div class="done-icon">
+                    <mat-icon>done</mat-icon>
+                </div>
+            </div>
+            <h1>Welcome!</h1>
+            <p>Get started with your admission process by choosing the applicant type and term.<br />
+              Click here to apply for your eligible programs.</p>
+            
+        </div>
+        <div class="btn_row justify-content-center">
+            <button mat-flat-button color="primary" class="primary_button mt-4 d-flex" (click)="openModal(newApplication)"><mat-icon class="md-22">navigate_next</mat-icon>Get Started</button>
+        </div>
+    </div>
+</div>
+
+<ng-template #newApplication>
+    <div class="dialog_title">
+      <h2>New Application</h2>
+      <button mat-button class="close_btn" aria-label="Close Application Window" (click)="closeModals()">
+        <mat-icon>close</mat-icon>
+      </button>
+    </div>
+    <div mat-dialog-content class="max-h-auto">
+      <p>Enter the following information to start with your application.</p>
+      <form [formGroup]="createApplicationForm">
+        <div class="row justify-content-center">
+          <div class="col-lg-10 col-sm-12">
+            <mat-form-field class="w-100">
+                <mat-label>Select Application Type</mat-label>
+                <mat-select formControlName="admissionTypeRecId">
+                  <mat-option *ngFor="let type of courses?.admissionTypes" [value]="type?.admissionTypeRecId">{{type?.admissionTypeEngName}}</mat-option>
+                </mat-select>
+            </mat-form-field>
+            <mat-form-field class="w-100">
+                <mat-label>Select Degree</mat-label>
+                <mat-select formControlName="degreeTypeRecId">
+                    <mat-option *ngFor="let course of courses?.courseTypes" [value]="course?.degreeTypeRecId">{{course?.degreeTypeEngName}}</mat-option>
+                </mat-select>
+            </mat-form-field>
+            <mat-form-field class="w-100">
+                <mat-label>Select Academic Year</mat-label>
+                <mat-select formControlName="academicYearRecId">
+                    <mat-option *ngFor="let years of courses?.courseYears" [value]="years?.academicYearRecId">{{years?.ayStartYear}}-{{years?.ayEndYear}}</mat-option>
+                </mat-select>
+            </mat-form-field>
+            <mat-form-field class="w-100">
+                <mat-label>Select Term</mat-label>
+                <mat-select formControlName="termId">
+                    <mat-option  [value]="courses?.courseTenure?.termId">{{courses?.courseTenure?.termName}}</mat-option>
+                </mat-select>
+            </mat-form-field>
+            <button mat-flat-button color="primary" class="primary_button mx-auto d-flex w-75 mb-4" (click)="startApplication()">Apply</button>
+          </div>
+    
+        </div>
+      </form>
+        
+      
+      
+    </div>
+  </ng-template>

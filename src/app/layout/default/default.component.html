@@ -1,0 +1,9 @@
+<app-header></app-header>
+<app-mobile-stepper [stepIndex]="stepIndex" class="d-none mob-display" *ngIf="stepIndex !== 0 && stepIndex !== 5"></app-mobile-stepper>
+<section class="main_wrp" [style.min-height]="router.url !== 'welcome' ? '90vh': ''">
+    <main class="main_cnt">
+        <router-outlet></router-outlet>
+        <app-mobile-footer [ngClass]="(stepIndex !== 0 && stepIndex !== 5) ? 'd-lg-none d-xl-none m-0 mt-5' : ''"></app-mobile-footer>
+    </main>
+    <app-sidebar [stepIndex]="stepIndex" class="d-none d-sm-block mob-hidden" *ngIf="(stepIndex !== 0 && stepIndex !== 5)"></app-sidebar>
+</section>

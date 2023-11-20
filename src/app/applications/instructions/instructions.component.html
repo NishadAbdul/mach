@@ -1,0 +1,25 @@
+<div class="row">
+    <div class="col-8">
+        <h3>Welcome to Mohammed Al-Mana College for Medical Science Admission Portal</h3>
+        <div class="disclosure_cnt" [formGroup]="disclosureForm">
+        <h4>The Admissions for Fall 2023-2024 is now open, to apply to MACHS please go through the guidelines</h4>
+        <ol class="mt-4">
+            <li *ngFor="let inst of instructionList">
+                {{inst?.instructionsEng}}
+            </li>
+        </ol>
+        <mat-checkbox color="primary" class="disclosure_check mt-2" formControlName="guidelinesAcknowledged">
+            I read all the application process guidelines above and I understand MACHs admission workflow. I take the responsibility of accurate submission information in the application form
+        </mat-checkbox>
+        <mat-error class="orig-warning" *ngIf="!disclosureForm.get('guidelinesAcknowledged')?.valid && disclosureForm.get('guidelinesAcknowledged')?.touched && disclosureForm.controls['guidelinesAcknowledged']?.value !== true">
+            Please check the acknowledgement.
+        </mat-error>
+        <button mat-raised-button color="primary" class="primary_button my-4 d-flex ms-auto" (click)="saveAndProceed()">Next<mat-icon class="md-22" iconPositionEnd>chevron_right</mat-icon></button>
+
+        
+        </div>
+    </div>
+    <div class="col-4">
+        <app-stepper [stepIndex]="1" class="d-none d-sm-block mob-hidden"></app-stepper>
+    </div>
+</div>

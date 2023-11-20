@@ -1,0 +1,19 @@
+.cookie-container {
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    display: flex; 
+    .error-modal {
+        width: 420px;
+        max-width: 80vw;
+        position: static;
+        padding: 20px !important;
+        h2 {
+            font-weight: 500 !important;
+        }
+    }
+    .inst-logo {
+        width: 40%;
+        max-width: 100%;
+    }
+}

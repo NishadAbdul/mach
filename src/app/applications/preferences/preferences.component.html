@@ -1,0 +1,38 @@
+  
+<div class="row">
+    <div class="col-8">
+        <form>
+            <div class="form_cnt mt-0">
+              <h3>Program Preferences</h3>
+              <p>Order program preferences by draging programs listed below.</p>
+          
+              <div class="row">
+                <div class="col-9" cdkDropList  (cdkDropListDropped)="drop($event)">
+                    <ng-template ngFor let-preferenceGroup [ngForOf]="preferenceGroupList" let-i="index">
+                      <div class="row product-group-item" cdkDrag>
+                        <div class="col-1 action-drag"><i class="material-icons product-group-handle" cdkDragHandle>drag_handle</i></div>
+                        <div class="col align-items-center d-flex">
+                          <h3 class="product-group-title">{{preferenceGroup.name}}</h3>
+                        </div>
+                      </div>
+                    </ng-template>                    
+                </div>
+            </div> 
+            </div>
+          
+            <div class="btn_row col-9 mt-4">
+              <button type="button" mat-stroked-button color="primary" class="secondary_button mt-2 d-flex ms-auto me-3" aria-label="Back" routerLink="/home/applications/documents"><mat-icon class="md-22">chevron_left</mat-icon> Back</button>
+              <button type="button" mat-flat-button color="primary" class="primary_button mt-2 d-flex" routerLink="/home/applications/additional-details">Next<mat-icon class="md-22" iconPositionEnd>chevron_right</mat-icon></button>
+            </div> <!-- (click)="saveUserDetails()"-->
+        </form>
+    </div>
+    <div class="col-4">
+        <app-stepper [stepIndex]="6" class="d-none d-sm-block mob-hidden"></app-stepper>
+    </div>
+</div>
+
+  
+  
+  
+  
+  

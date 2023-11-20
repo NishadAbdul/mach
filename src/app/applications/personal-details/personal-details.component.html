@@ -1,0 +1,179 @@
+  
+<div class="row">
+    <div class="col-8">
+        <form [formGroup]="basicDetailsForm">
+            <div class="form_cnt mt-0">
+              <h3>Tell us about yourself.</h3>
+              <p>Please fill out your personal information.</p>
+          
+              <span class="bold_text mt-2 d-inline-block w-100 required">Are you a Soudi National?</span>
+              <div class="form_row">
+                <div class="row mt-3 mb-4">
+                  <div class="col-6">
+                    <label tabindex="0" origEnter for="isArabCountry" class="radio_custom checked" [ngClass]="basicDetailsForm.controls['nationality'].value ? 'checked' : ''"> Yes 
+                      <input tabindex="-1" type="radio" formControlName="isArabCountry" id="haveAccount" [value]="true" (change)="updateNationality($event)">
+                      <span class="material-icons"> done </span>
+                    </label>
+                  </div>
+                  <div class="col-6">
+                    <label tabindex="0" origEnter for="isArabCountry" class="radio_custom" [ngClass]="!basicDetailsForm.controls['nationality'].value ? 'checked' : ''"> No 
+                      <input tabindex="-1" type="radio" formControlName="isArabCountry" id="noAccount" [value]="false" (change)="updateNationality($event)">
+                      <span class="material-icons"> done </span>
+                    </label>
+                  </div>
+                </div>
+              </div>
+          
+              <div class="row">
+                <div class="col-lg-4 col-sm-6" *ngIf="!this.basicDetailsForm.controls['isArabCountry'].value">
+                  <mat-form-field class="w-100">
+                    <mat-label>Specify your Nationality</mat-label>
+                    <input matInput formControlName="nationality">
+                    <mat-error *ngIf="basicDetailsForm.controls['nationality']?.hasError('required')">Enter your Nationality</mat-error>
+                  </mat-form-field>
+                </div>
+                <div class="col-lg-6 col-sm-6">
+                  <mat-form-field class="w-100">
+                    <mat-label>IQAMA Number / National ID</mat-label>
+                    <input matInput formControlName="nationalId">
+                    <mat-error *ngIf="basicDetailsForm.controls['nationalId']?.hasError('required')">Enter IQAMA Number / National ID</mat-error>
+                  </mat-form-field>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-lg-4 col-sm-6">
+                  <mat-form-field class="w-100">
+                    <mat-label>First Name (English) </mat-label>
+                    <input matInput formControlName="firstNameEng">
+                    <mat-error *ngIf="basicDetailsForm.controls['firstNameEng']?.hasError('required')">Enter First Name in English</mat-error>
+                  </mat-form-field>
+                </div>
+                <div class="col-lg-4 col-sm-6">
+                  <mat-form-field class="w-100">
+                    <mat-label>Father Name (English)</mat-label>
+                    <input matInput formControlName="fatherNameEng">
+                    <mat-error *ngIf="basicDetailsForm.controls['fatherNameEng']?.hasError('required')">Enter Father's Name in English</mat-error>
+                  </mat-form-field>
+                </div>
+                <div class="col-lg-4 col-sm-6">
+                  <mat-form-field class="w-100">
+                    <mat-label>Grandfather Name (English)</mat-label>
+                    <input matInput formControlName="grandFatherNameEng">
+                    <mat-error *ngIf="basicDetailsForm.controls['grandFatherNameEng']?.hasError('required')">Enter Grand Father's Name in English</mat-error>
+                  </mat-form-field>
+                </div>
+                <div class="col-lg-4 col-sm-6">
+                  <mat-form-field class="w-100">
+                    <mat-label>Last Name (English)</mat-label>
+                    <input matInput formControlName="lastNameEng">
+                    <mat-error *ngIf="basicDetailsForm.controls['lastNameEng']?.hasError('required')">Enter Last Name in English</mat-error>
+                  </mat-form-field>
+                </div>
+                <div class="col-lg-4 col-sm-6">
+                  <mat-form-field class="w-100">
+                    <mat-label>First Name (Arabic) </mat-label>
+                    <input matInput formControlName="firstNameLocal">
+                    <mat-error *ngIf="basicDetailsForm.controls['firstNameLocal']?.hasError('required')">Enter First Name in Arabic</mat-error>
+                    <mat-error *ngIf="basicDetailsForm.controls['firstNameLocal']?.hasError('pattern')">Enter Arabic letters only</mat-error>
+                  </mat-form-field>
+                </div>
+                <div class="col-lg-4 col-sm-6">
+                  <mat-form-field class="w-100">
+                    <mat-label>Father Name (Arabic)</mat-label>
+                    <input matInput formControlName="fatherNameLocal">
+                    <mat-error *ngIf="basicDetailsForm.controls['fatherNameLocal']?.hasError('required')">Enter Father's Name in Arabic</mat-error>
+                    <mat-error *ngIf="basicDetailsForm.controls['fatherNameLocal']?.hasError('pattern')">Enter Arabic letters only</mat-error>
+                  </mat-form-field>
+                </div>
+                <div class="col-lg-4 col-sm-6">
+                  <mat-form-field class="w-100">
+                    <mat-label>Grand Father's Name (Arabic)</mat-label>
+                    <input matInput formControlName="grandFatherNameLocal">
+                    <mat-error *ngIf="basicDetailsForm.controls['grandFatherNameLocal']?.hasError('required')">Enter Grand Father's Name in Arabic</mat-error>
+                    <mat-error *ngIf="basicDetailsForm.controls['grandFatherNameLocal']?.hasError('pattern')">Enter Arabic letters only</mat-error>
+                  </mat-form-field>
+                </div>
+                <div class="col-lg-4 col-sm-6">
+                  <mat-form-field class="w-100">
+                    <mat-label>Last Name (Arabic)</mat-label>
+                    <input matInput formControlName="lastNameLocal">
+                    <mat-error *ngIf="basicDetailsForm.controls['lastNameLocal']?.hasError('required')">Enter Last Name in Arabic</mat-error>
+                    <mat-error *ngIf="basicDetailsForm.controls['lastNameLocal']?.hasError('pattern')">Enter Arabic letters only</mat-error>
+                  </mat-form-field>
+                </div>
+                <div class="col-lg-4 col-sm-5">
+                  <mat-form-field class="w-100">
+                    <mat-label>Date of Birth</mat-label>
+                    <input matInput [matDatepicker]="dob" formControlName="dateofBirth">
+                    <mat-datepicker-toggle matIconSuffix [for]="dob"></mat-datepicker-toggle>
+                    <mat-datepicker #dob></mat-datepicker>
+                    <mat-error *ngIf="basicDetailsForm.controls['dateofBirth']?.hasError('required')">Enter Date of Birth</mat-error>
+                  </mat-form-field>
+                </div>
+                <span class="bold_text mt-3 d-inline-block w-100 required">What is your gender?</span>
+                <div class="form_row">
+                  <div class="row mt-2 mb-4">
+                    <div class="col-6">
+                      <label origEnter tabindex="0" for="gender" class="radio_custom checked"> Male 
+                        <input tabindex="-1" type="radio" formControlName="gender" id="male" [value]="true">
+                        <span class="material-icons"> done </span>
+                      </label>
+                    </div>
+                    <div class="col-6">
+                      <label origEnter tabindex="0" for="gender" class="radio_custom"> Female 
+                        <input tabindex="-1" type="radio" formControlName="gender" id="female" [value]="false">
+                        <span class="material-icons"> done </span>
+                      </label>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          
+            <div class="form_cnt">
+              <h3>Contact Information</h3>
+              <p>Please provide your contact information</p>
+              <div class="row">
+                <div class="col-lg-3 col-sm-6">
+                  <mat-form-field class="w-100">
+                    <mat-label>ISD Code</mat-label>
+                    <mat-select>
+                      <mat-option value="one">+213 (Algeria)</mat-option>
+                    </mat-select>
+                  </mat-form-field>
+                </div>
+                <div class="col-lg-5 col-sm-6">
+                  <mat-form-field class="w-100">
+                    <mat-label>Primary Phone Number</mat-label>
+                    <input matInput formControlName="mobile">
+                    <mat-error *ngIf="basicDetailsForm.controls['mobile']?.hasError('required')">Enter Phone Number</mat-error>
+                  </mat-form-field>
+                </div>
+                <div class="col-lg-4 col-sm-6">
+                  <mat-form-field class="w-100">
+                    <mat-label>Primary Email Id</mat-label>
+                    <input matInput formControlName="emailAddress">
+                    <mat-error *ngIf="basicDetailsForm.controls['emailAddress']?.hasError('required')">Enter Email Address</mat-error>
+                    <mat-error *ngIf="basicDetailsForm.controls['emailAddress']?.hasError('email')">Enter a valid Email Address</mat-error>
+                  </mat-form-field>
+                </div>
+          
+              </div>
+            </div>
+          
+            <div class="btn_row">
+              <button type="button" mat-stroked-button color="primary" class="secondary_button mt-2 d-flex ms-auto me-3" aria-label="Back" routerLink="/home/applications/instructions"><mat-icon class="md-22">chevron_left</mat-icon> Back</button>
+              <button type="button" mat-flat-button color="primary" class="primary_button mt-2 d-flex" (click)="saveUserDetails()">Next<mat-icon class="md-22" iconPositionEnd>chevron_right</mat-icon></button>
+            </div>
+        </form>
+    </div>
+    <div class="col-4">
+        <app-stepper [stepIndex]="2" class="d-none d-sm-block mob-hidden"></app-stepper>
+    </div>
+</div>
+
+  
+  
+  
+  
+  

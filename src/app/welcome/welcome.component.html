@@ -1,0 +1,113 @@
+
+<section class="banner_wrp">
+    <div class="banner_img">
+      <img ngSrc="assets/images/banner.webp" sizes="100vw" priority="eager" fill alt="img" />
+    </div>
+    <div class="banner_cnt_main">
+      <header class="header_wrp ">
+        <div class="logo">
+          <img src="assets/images/logo.webp" class="brand" alt="img" />
+        </div>
+        <div class="contact">
+          <button mat-stroked-button color="accent" class="secondary_outline_btn">English</button>
+        </div>
+      </header>
+    
+      <div class="welcome_cnt_wrp">
+        <div class="welcome_cnt">
+          <h3>Welcome to the Admission Portal of</h3>
+          <h2>Mohammed Al-Mana College<br /> for Medical Sciences</h2>
+          <div class="btn_row mt-4">
+            <button mat-stroked-button class="outline_btn primary me-3" color="primary" (click)="openModal(loginModal)">Login</button>
+            <button mat-stroked-button class="outline_btn" routerLink="/home/new-user/guidlines">Apply Now</button>
+          </div>
+          
+        </div>
+      </div>
+    </div>
+  
+   
+  
+  </section>
+  
+  <section class="home_cnt_wrp">
+    <div class="home_cnt">
+      <h1>About MACHS</h1>
+      <p>Mohammed Al-Mana College for Medical Sciences (MACHS), situated in the Eastern Province is one of the higher education institutions that is specialized in health and applied vocational training in the Kingdom of Saudi Arabia. MACHS is a part of Al-Mana Group of Hospitals. Since 1949, Al-Mana General Hospital (AGH) has been dedicated to bring standard-setting health care</p>
+      <p>MACHS seeks to promote the educational process for various health disciplines by following up with the most developed and updated programs to establish a distinctive quality standard for health education and its outcomes</p>
+      <p>n 2003, an academic collaboration and partnership with both the American University of Beirut, Lebanon and the University of Oregon, United States of America was considered to be the most important characteristic of the level of performance, quality of outputs, and educational and academic programs of the college</p>
+      <p>It was in the same year when the college received the preliminary approval to operate from the Ministry of Education (MOE) under the initial license number 20579</p>
+      <p>MACHS has expanded in a relatively short span of time to include 6 departments offering diverse academic programs (majors) at the bachelor level</p>
+      <p>There are currently more than 1,300 students enrolled at the college with academic instructions delivered by more than 100 faculty members having diverse international experience and renowned stature</p>
+    </div>
+    
+  </section>
+  
+  
+  
+  <ng-template #loginModal>
+    <div class="dialog_title">
+      <h2>Login!</h2>
+      <button mat-button class="close_btn" (click)="closeModals()">
+        <mat-icon>close</mat-icon>
+      </button>
+    </div>
+    
+    <div mat-dialog-content>
+      <p>Provide the following information for accessing your application.</p>
+      <form [formGroup]="loginForm">
+        <div class="row justify-content-center">
+          <div class="col-lg-10 col-sm-12">
+            <mat-form-field class="w-100">
+              <mat-label>Enter National ID / IQAMA No. / Email</mat-label>
+              <mat-icon matPrefix>person</mat-icon>
+              <input matInput formControlName="username">
+              <mat-error *ngIf="loginForm.get('username')?.hasError('required')">Username is required</mat-error>
+            </mat-form-field>
+            <mat-form-field class="w-100">
+              <mat-label>Enter Password</mat-label>
+              <mat-icon matPrefix>lock</mat-icon>
+              <input matInput type="password" formControlName="password">
+              <mat-error *ngIf="loginForm.get('password')?.hasError('required')">Password is required</mat-error>
+            </mat-form-field>
+            <a href="javascript:void(0)" (click)="dialogRef.close();openModal(forgotModal)" class="d-flex mb-4 ms-1">Forgot Password?</a>
+            <button mat-raised-button type="button" color="primary" class="primary_button mx-auto d-flex w-50 mb-4" (click)="loginUser()">Login<mat-icon class="md-22" iconPositionEnd>chevron_right</mat-icon></button>
+          </div>
+    
+        </div>
+      </form>
+     
+    </div>
+  
+  </ng-template>
+
+  <ng-template #forgotModal>
+    <div class="dialog_title">
+      <h2>Forgot Password?</h2>
+      <button mat-button class="close_btn" aria-label="Close Window" (click)="closeModals()">
+        <mat-icon>close</mat-icon>
+      </button>
+    </div>
+    <div mat-dialog-content class="max-h-auto">
+      <p>Provide your email address and we will send you instruction on your email to reset password.</p>
+      <div class="alert alert-success" role="alert" *ngIf="confirmationSuccess">
+        An email has been sent to you. Please check your email to proceed.
+      </div>
+        <form [formGroup]="forgotPasswordForm">
+          <div class="row justify-content-center">
+            <div class="col-lg-10 col-sm-12">
+              <mat-form-field class="w-100">
+                <mat-label>Email Address</mat-label>
+                <mat-icon matPrefix>mail</mat-icon>
+                <input matInput formControlName="emailAddress">
+                <mat-error *ngIf="forgotPasswordForm.controls['emailAddress']?.hasError('required')">Enter Email Address</mat-error>
+                <mat-error *ngIf="forgotPasswordForm.controls['emailAddress']?.hasError('email')">Enter a valid Email Address</mat-error>
+              </mat-form-field>
+              <button mat-flat-button color="primary" class="primary_button mx-auto d-flex w-75 mb-4" (click)="forgotPassword()">Submit</button>
+              <button mat-stroked-button class="outline_btn mx-auto d-flex w-75 mb-4" (click)="dialogRef.close();openModal(loginModal)">Sign In</button>
+            </div>
+          </div>
+        </form>
+    </div>
+  </ng-template>
+  
