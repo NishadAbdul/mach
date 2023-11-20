@@ -56,7 +56,10 @@ export class AppState {
     } else if(sessionStorage?.getItem(id) && sessionStorage?.getItem(id) !== 'undefined'){
       let data: any = sessionStorage.getItem(id);
       this.shared[id] = data;
-      return JSON.parse(data);
+      if(typeof data == "object")
+        return JSON.parse(data);
+      else
+        return data;
     } else {
       return null;
     }

@@ -35,8 +35,7 @@ export class InterceptorService implements HttpInterceptor {
             );
           }
         }
-      }), catchError((error: HttpErrorResponse) => {
-        this.traceId = error.headers.get('traceid');       
+      }), catchError((error: HttpErrorResponse) => {    
 
         if (error instanceof HttpErrorResponse) {
           this.handleErrors(error);

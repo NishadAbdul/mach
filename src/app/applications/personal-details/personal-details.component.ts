@@ -12,14 +12,16 @@ import { AppState } from 'src/app/app.service';
 })
 export class PersonalDetailsComponent {
   public basicDetailsForm !: FormGroup;
+  appIdentifier: string = '';
   constructor(private router: Router,
     private newUserService: PersonalDetailsService,
     private appState: AppState) {
-      this.formBuilder();
+      this.appIdentifier = this.appState.getSharedObj('applicationNumber');      
     }
 
   ngOnInit() {
-    const request = `ApplicationNumber=${this.appState.getSharedObj('applicationNumber')}&ApplicationRecId=${this.appState.getSharedObj('applicationRecId')}`
+    this.formBuilder();
+    const request = `ApplicationNumber=${this.appIdentifier}&ApplicationRecId=${this.appState.getSharedObj('applicationRecId')}`
     this.newUserService.getPersonalDetails(request).subscribe((data: any) => {
       this.setPersonalDetails(data);
     })    
@@ -27,6 +29,7 @@ export class PersonalDetailsComponent {
 
   setPersonalDetails(data: any) {
     this.basicDetailsForm.patchValue({
+      applicationNumber: data?.applicationNumber ? data?.applicationNumber : this.appIdentifier,
       isArabCountry: data?.isArabCountry,
       nationality: data?.nationality,
       nationalId: data?.nationalId,
@@ -41,13 +44,14 @@ export class PersonalDetailsComponent {
       fatherNameLocal: data?.fatherNameLocal,
       grandFatherNameLocal: data?.grandFatherNameLocal,
       isdCode: data?.isdCode,
-      mobile: data?.mobile,
-      emailAddress: data?.emailAddress,
+      primaryMobileNo: data?.primaryMobileNo,
+      primaryEmailId: data?.primaryEmailId,
     })
   }
 
   formBuilder() {
     this.basicDetailsForm = new FormGroup({
+      applicationNumber: new FormControl<string>(this.appIdentifier),
       isArabCountry: new FormControl<boolean>(true, Validators.required),
       nationality: new FormControl<string>(''),
       nationalId: new FormControl<string>('', Validators.required),
@@ -62,8 +66,8 @@ export class PersonalDetailsComponent {
       fatherNameLocal: new FormControl<string>('', [Validators.required, Validators.pattern('[\u0600-\u06FF]*')]),
       grandFatherNameLocal: new FormControl<string>('', [Validators.required, Validators.pattern('[\u0600-\u06FF]*')]),
       isdCode: new FormControl<string>(''),
-      mobile: new FormControl<string>('', Validators.required),
-      emailAddress: new FormControl<string>('', [Validators.required]),
+      primaryMobileNo: new FormControl<string>('', Validators.required),
+      primaryEmailId: new FormControl<string>('', [Validators.required]),
     })
   }
 
@@ -79,6 +83,7 @@ export class PersonalDetailsComponent {
       this.basicDetailsForm.controls['fatherNameLocal'].setValidators(Validators.pattern('[\u0600-\u06FF]*'));
       this.basicDetailsForm.controls['grandFatherNameLocal'].setValidators(Validators.pattern('[\u0600-\u06FF]*'));
       this.basicDetailsForm.controls['grandFatherNameEng'].clearValidators();
+      this.basicDetailsForm.controls['fatherNameEng'].clearValidators();
       this.basicDetailsForm.controls['nationality'].setValidators(Validators.required);
     } else {
       this.basicDetailsForm.controls['nationality'].clearValidators();
@@ -94,6 +99,7 @@ export class PersonalDetailsComponent {
       this.basicDetailsForm.controls['grandFatherNameLocal'].updateValueAndValidity();
       this.basicDetailsForm.controls['grandFatherNameEng'].updateValueAndValidity();
       this.basicDetailsForm.controls['nationality'].updateValueAndValidity();
+      this.basicDetailsForm.controls['fatherNameEng'].updateValueAndValidity();
   }
 
   saveUserDetails() {    

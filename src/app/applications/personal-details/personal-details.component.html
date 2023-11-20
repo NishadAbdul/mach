@@ -145,16 +145,16 @@
                 <div class="col-lg-5 col-sm-6">
                   <mat-form-field class="w-100">
                     <mat-label>Primary Phone Number</mat-label>
-                    <input matInput formControlName="mobile">
-                    <mat-error *ngIf="basicDetailsForm.controls['mobile']?.hasError('required')">Enter Phone Number</mat-error>
+                    <input matInput formControlName="primaryMobileNo">
+                    <mat-error *ngIf="basicDetailsForm.controls['primaryMobileNo']?.hasError('required')">Enter Phone Number</mat-error>
                   </mat-form-field>
                 </div>
                 <div class="col-lg-4 col-sm-6">
                   <mat-form-field class="w-100">
                     <mat-label>Primary Email Id</mat-label>
-                    <input matInput formControlName="emailAddress">
-                    <mat-error *ngIf="basicDetailsForm.controls['emailAddress']?.hasError('required')">Enter Email Address</mat-error>
-                    <mat-error *ngIf="basicDetailsForm.controls['emailAddress']?.hasError('email')">Enter a valid Email Address</mat-error>
+                    <input matInput formControlName="primaryEmailId">
+                    <mat-error *ngIf="basicDetailsForm.controls['primaryEmailId']?.hasError('required')">Enter Email Address</mat-error>
+                    <mat-error *ngIf="basicDetailsForm.controls['primaryEmailId']?.hasError('email')">Enter a valid Email Address</mat-error>
                   </mat-form-field>
                 </div>
           
