@@ -1,5 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { AppState } from 'src/app/app.service';
 
 @Component({
   selector: 'app-header',
@@ -8,8 +9,11 @@ import { Router } from '@angular/router';
 })
 export class HeaderComponent implements OnInit {
   public redirectUrl = false;
-  constructor(public router: Router) {
-    
+  public isLoggedIn: boolean = false;
+  constructor(public router: Router, private appState: AppState) {
+    if (this.appState.applicationIdentifier) {
+      this.isLoggedIn = true;
+    }
   }
 
   ngOnInit(): void {

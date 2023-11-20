@@ -21,18 +21,11 @@ export class WelcomeComponent {
     private readonly fb: NonNullableFormBuilder,
     private createAppService: WelcomeService,
     private appState: AppState) {
-      if (!this.appState.getSharedObj('applicationIdentifier')) {
-        if (this.route.snapshot.paramMap.get('applicationIdentifier')) {
-          const applicationIdentifier = this.route.snapshot.paramMap.get('applicationIdentifier');
-          this.appState.setSharedObj('applicationIdentifier', applicationIdentifier);
-        }        
-      } else {
-        window.location.href = 'https://google.com';
-      }
       this.formBuilder();
     }
 
     ngOnInit() {
+      debugger;
       this.createAppService.getCourseMasterData().subscribe((data: any) => {
         this.courses = data;
       })
@@ -70,8 +63,8 @@ export class WelcomeComponent {
         this.appState.setSharedObj('applicationNumber', response.applicationNumber);
         this.appState.setSharedObj('applicationRecId', response.applicationRecId);
         this.closeModals();
-        this.router.navigateByUrl('/home/applications/instructions')
+        this.router.navigateByUrl('/dashboard/applications/instructions')
       })
-      this.router.navigateByUrl('/home/applications/instructions')
+      this.router.navigateByUrl('/dashboard/applications/instructions')
     }
 }

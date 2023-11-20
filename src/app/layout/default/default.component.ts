@@ -20,10 +20,14 @@ export class DefaultComponent implements OnInit {
     private routeDataService: RouteDataService,
     private activatedRoute: ActivatedRoute,
     private appState: AppState) {
+      if(this.appState.applicationIdentifier) {
+        this.appState.deleteSharedObj('applicationIdentifier');
+      }
       const currentStep = this.appState.getSharedObj('resumeStep');
       if (this.router.url !== '/home/new-user/guidlines' && currentStep > 0 && this.stepIndex === 0) {
         this.stepIndex = currentStep;
       }
+      
   }
 
   ngOnInit(): void {

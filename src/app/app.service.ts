@@ -53,12 +53,12 @@ export class AppState {
   public getSharedObj(id: string){
     if (this.shared[id]) {
       return this.shared[id];
-    } else if(sessionStorage.getItem(id)){
+    } else if(sessionStorage?.getItem(id) && sessionStorage?.getItem(id) !== 'undefined'){
       let data: any = sessionStorage.getItem(id);
       this.shared[id] = data;
       return JSON.parse(data);
     } else {
-      return JSON.parse('{}');
+      return null;
     }
   }
 

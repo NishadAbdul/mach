@@ -98,7 +98,7 @@ export class DocumentsComponent {
 
   saveAndNext() {
     if (this.documentCount === 0) {
-      this.router.navigateByUrl('/home/applications/')
+      this.router.navigateByUrl('/dashboard/applications/')
     } else {
       this.touched = true;
       this.sizeInvalid = {};

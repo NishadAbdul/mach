@@ -16,6 +16,8 @@ import { MatMenuModule } from '@angular/material/menu';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { MobileFooterComponent } from './components/mobile-footer/mobile-footer.component';
 import { MobileStepperComponent } from './components/mobile-stepper/mobile-stepper.component';
+import { StepperComponent } from './components/stepper/stepper.component';
+import { MenuBarComponent } from './components/menubar/menubar.component';
 
 const maskConfigFunction: () => Partial<IConfig> = () => {
   return {
@@ -30,7 +32,9 @@ const maskConfigFunction: () => Partial<IConfig> = () => {
     FooterComponent,
     MobileFooterComponent,
     ErrorHandlerComponent,
-    MobileStepperComponent    
+    MobileStepperComponent,
+    StepperComponent,
+    MenuBarComponent
   ],
   imports: [
     CommonModule,
@@ -48,7 +52,9 @@ const maskConfigFunction: () => Partial<IConfig> = () => {
     SidebarComponent,
     FooterComponent,
     MobileFooterComponent,
-    MobileStepperComponent
+    MobileStepperComponent,
+    StepperComponent,
+    MenuBarComponent
   ],
   providers: [HttpApiService, HttpLoaderService, provideNgxMask(maskConfigFunction)]
 })

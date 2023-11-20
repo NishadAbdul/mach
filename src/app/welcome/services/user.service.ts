@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpApiService } from '../../core/services/http-api.service';
-import { environment } from 'projects/home/src/environments/environment';
+import { environment } from 'src/environments/environment';
 import { ApiPaths } from '../../shared/config/api-config';
 
 @Injectable({

@@ -85,7 +85,7 @@
     color: red;
 }
 .mat-mdc-form-field-focus-overlay {
-    background: rgba(0,0,0,0.3) !important;
+    background: rgba(0,0,0,0.03) !important;
 }
 .mdc-line-ripple {
     display: none;
@@ -111,6 +111,10 @@
 .mdc-checkbox .mdc-checkbox__native-control:enabled:checked~.mdc-checkbox__background, .mdc-checkbox .mdc-checkbox__native-control:enabled:indeterminate~.mdc-checkbox__background, .mdc-checkbox .mdc-checkbox__native-control[data-indeterminate=true]:enabled~.mdc-checkbox__background {
     background-color: $primary_color !important;
     border-color: $primary_color !important;
+}
+
+.mdc-checkbox__ripple {
+    background: transparent !important;
 }
 
 

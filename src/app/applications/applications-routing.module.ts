@@ -15,7 +15,6 @@ const routes: Routes = [
   { path: '', redirectTo: 'welcome', pathMatch: 'full'},
   { path: 'all-applications', component: AllApplicationsComponent},
   { path: 'welcome', component: WelcomeComponent},
-  { path: 'welcome/:applicationIdentifier', component: WelcomeComponent},
   { path: 'instructions', component: InstructionsComponent, data: { ApplicationProgress : 1}},
   { path: 'personal-details', component: PersonalDetailsComponent, data: { ApplicationProgress : 2}},
   { path: 'address-details', component: AddressDetailsComponent, data: { ApplicationProgress : 3}},

@@ -3,7 +3,7 @@ import { HttpInterceptor, HttpEvent, HttpHandler, HttpRequest } from '@angular/c
 import { EMPTY, Observable } from 'rxjs';
 import { Router } from '@angular/router';
 import { AppState } from '../../app.service';
-import { environment } from 'projects/home/src/environments/environment';
+import { environment } from 'src/environments/environment';
 
 
 @Injectable({

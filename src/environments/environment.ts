@@ -4,7 +4,6 @@
 
 export const environment = {
   production: false,
-  hostUrl: 'http://machs.mobatia.in:5001/home/applications/welcome',
   baseUrl: 'http://machs.mobatia.in:5001/AdmissionPortalApi/',
   applicationUrl: 'applications/',
   zipPattern: '^\d{5}(?:[-\s]\d{4})?$',

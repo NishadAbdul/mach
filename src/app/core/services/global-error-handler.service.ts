@@ -2,7 +2,7 @@ import { Injectable, ErrorHandler, Injector } from '@angular/core';
 import { HttpClient, HttpHeaders, HttpErrorResponse } from '@angular/common/http';
 import { LocationStrategy, PathLocationStrategy } from '@angular/common';
 import { ErrorHandlerService } from './error-handler.service';
-import { environment } from 'projects/home/src/environments/environment';
+import { environment } from 'src/environments/environment';
 
 
 @Injectable()

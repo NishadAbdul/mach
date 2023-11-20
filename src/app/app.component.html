@@ -1,4 +1,6 @@
-<router-outlet></router-outlet>
+
+    <router-outlet></router-outlet>
+
 <ng-container *ngIf="pageInitialized">
     <div *ngIf="loaderService?.isLoading | async" class="loading-indicator">
         <mat-spinner [diameter]="50" aria-label="loading.." color="primary"></mat-spinner>

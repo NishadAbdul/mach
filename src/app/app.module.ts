@@ -58,6 +58,6 @@ export function appInitializerFn(appConfigService: AppConfigService) {
       useFactory : appInitializerFn
     },
     BaseConfigService],
-  bootstrap: [AppComponent, Location]
+  bootstrap: [AppComponent]
 })
 export class AppModule { }

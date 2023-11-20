@@ -1,6 +1,6 @@
 import { AbstractControl, UntypedFormArray, UntypedFormControl, UntypedFormGroup, Validators, ValidatorFn } from "@angular/forms";
 import { FieldManager } from "../../baseConfig.service";
-import { environment } from "projects/home/src/environments/environment";
+import { environment } from "src/environments/environment";
 
 
 export function setRequired(manager: FieldManager, field: number, validators: ValidatorFn[] = []): ValidatorFn[] {

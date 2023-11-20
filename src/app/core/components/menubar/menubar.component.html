@@ -1,0 +1,25 @@
+<!-- Nav -->
+<nav class="nav_wrp" *ngIf="router.url != '/' && router.url != '/home/search'">
+  <ul>
+    <li *ngFor="let icons of menuList" (click)="toggleSubMenu(icons, selectedMenu)"
+    #tooltip="matTooltip"
+    matTooltip="{{icons?.title}}"
+    matTooltipPosition="right">
+      <a href="javascript: void(0)" [class.active]="icons?.icon === selectedMenu?.icon">
+        <mat-icon>{{icons.icon}}</mat-icon>
+      </a>
+    </li>
+  </ul>
+  </nav>
+
+  <div class="sub_menu_wrp" *ngIf="router.url != '/' && router.url != '/home/search' && selectedMenu?.subMenu?.length > 0 && toggleMenu">
+    <h3>{{selectedMenu?.title}} <mat-icon class="float-right" (click)="triggerSubmenuClose()">close</mat-icon></h3>
+    <ul>
+      <li *ngFor="let menu of selectedMenu?.subMenu" (click)="redirectUrl(menu?.url)">
+        <a href="javascript: void(0)" [class.active]="router.url === menu?.url">
+          <mat-icon>{{menu?.icon}}</mat-icon>
+          {{menu?.title}}
+        </a>
+      </li>
+    </ul>
+  </div>

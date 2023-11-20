@@ -6,7 +6,6 @@ import { ApplicationsRoutingModule } from './applications-routing.module';
 import { RouterModule } from '@angular/router';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CoreModule } from '../core/core.module';
-import { MaterialModule } from '../shared/material.module';
 import { SharedModule } from '../shared/shared.module';
 import { InstructionsComponent } from './instructions/instructions.component';
 import { PersonalDetailsComponent } from './personal-details/personal-details.component';
@@ -17,6 +16,7 @@ import { PreferencesComponent } from './preferences/preferences.component';
 import { AddressDetailsComponent } from './address-details/address-details.component';
 import { ReviewComponent } from './review/review.component';
 import { CdkDropList, CdkDrag} from '@angular/cdk/drag-drop';
+import { MaterialModule } from '../material/material.module';
 
 
 @NgModule({

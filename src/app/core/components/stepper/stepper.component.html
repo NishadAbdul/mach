@@ -1,0 +1,51 @@
+<aside class="aside_wrp">
+  <div class="wizard_block">
+    <ul class="main">
+      <li [class.active]="stepIndex === 1" [class.completed]="stepIndex > 1" step="1">
+        <div class="wizard_cnt">
+          <div >Instructions</div>
+        </div>
+      </li>
+      <li [class.active]="stepIndex === 2" [class.completed]="stepIndex > 2" step="2">
+        <div class="wizard_cnt">
+          <div >Personal Details</div>
+        </div>
+      </li>
+      <li  [class.active]="stepIndex === 3" [class.completed]="stepIndex > 3" step="3">
+        <div class="wizard_cnt">
+          <div>Address Details</div>
+        </div>
+      </li>
+      <li [class.active]="stepIndex === 4" [class.completed]="stepIndex > 4" step="4">
+        <div class="wizard_cnt">
+          <div >Education Details</div>
+        </div>
+      </li>
+      <li [class.active]="stepIndex === 5" [class.completed]="stepIndex > 5" step="5">
+        <div class="wizard_cnt">
+          <div>Documents</div>
+        </div>
+      </li>
+      <li [class.active]="stepIndex === 6" [class.completed]="stepIndex > 6" step="6">
+        <div class="wizard_cnt">
+          <div>Program References</div>
+        </div>
+      </li>
+      <li [class.active]="stepIndex === 7" [class.completed]="stepIndex > 7" step="7">
+        <div class="wizard_cnt">
+          <div>Additional Details</div>
+        </div>
+      </li>
+      <li [class.active]="stepIndex === 8" [class.completed]="stepIndex > 8" step="8">
+        <div class="wizard_cnt">
+          <div>Review & Declaration</div>
+        </div>
+      </li>
+      <li [class.active]="stepIndex === 9" [class.completed]="stepIndex > 9" step="9">
+        <div class="wizard_cnt">
+          <div>Payment</div>
+        </div>
+      </li>
+    </ul>
+  </div>
+</aside>

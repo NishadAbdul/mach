@@ -10,6 +10,7 @@ import { UserService } from './services/user.service';
 import { checkEmailAddressPattern } from '../core/utilities/utils';
 import { DomSanitizer } from '@angular/platform-browser';
 import { environment } from '../../environments/environment';
+import { AppState } from '../app.service';
 
 @Component({
   selector: 'app-home',
@@ -40,7 +41,11 @@ export class WelcomeComponent {
     private router: Router,
     private userService: UserService,
     public sanitizer: DomSanitizer,
-    private loc: Location) {
+    private appState: AppState) {
+      if(this.appState.applicationIdentifier) {
+        debugger;
+        this.appState.deleteSharedObj('applicationIdentifier');
+      }
     this.loginForm = this.fb.group({
       username: new FormControl<string>("", Validators.required),
       password: new FormControl<string>("", Validators.required)
@@ -76,6 +81,7 @@ export class WelcomeComponent {
   loginUser() {
     if (this.loginForm.valid) {
       this.userService.loginUser(this.loginForm.value).subscribe((data: any) => {
+        this.appState.setSharedObj('applicationIdentifier', data.applicationIdentifier)
         this.redirectToDashboard(data.applicationIdentifier);
         this.closeModals();
       });
@@ -85,18 +91,7 @@ export class WelcomeComponent {
   }
 
   redirectToDashboard(key: string) {
-    const hostRoute = this.loc.path();
-    const url = window.location.href;
-    const domainAndApp = url.replace(hostRoute, '');
-  //  let url: string | null = this.sanitizer.sanitize(SecurityContext.URL, `${environment.hostUrl}/${key}`);
-    const form = window.document.createElement("form");
-    form.setAttribute("method", "GET");
-    form.setAttribute("id", 'redirectForm');
-    form.setAttribute("action", `${domainAndApp}/mach-dashboard/${key}`);
-    form.setAttribute("target", "_self");
-    window.document.body.appendChild(form);
-    form.submit();
-  //  window.location.href = `${environment.hostUrl}/${key}`
+    this.router.navigateByUrl('dashboard/applications/welcome')
   }
 
   forgotPassword() {

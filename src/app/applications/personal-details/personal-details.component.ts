@@ -99,7 +99,7 @@ export class PersonalDetailsComponent {
   saveUserDetails() {    
     if(this.basicDetailsForm.valid) {
       this.newUserService.saveUserDetails(this.basicDetailsForm.value).subscribe((data:any)=> {
-        this.router.navigateByUrl('/home/applications/address-details');
+        this.router.navigateByUrl('/dashboard/applications/address-details');
       });      
     } else {
       this.basicDetailsForm.markAllAsTouched();

@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import tinycolor from "tinycolor2";
 import { HttpLoaderService } from './core/services/loader.service';
+import { AppState } from './app.service';
+import { ActivatedRoute, Router } from '@angular/router';
 
 export interface Color {
   name: string;
@@ -16,13 +18,24 @@ export class AppComponent {
   title = 'MACH - Admission Portal';
   colorPalette: Color[] = [];
   pageInitialized: boolean = false;
-  constructor(public loaderService: HttpLoaderService) {
+  isLoggedIn: boolean = false;
+  constructor(public loaderService: HttpLoaderService,
+    private appState: AppState,
+    private route: Router) {
+    if (this.appState.applicationIdentifier) {
+      this.isLoggedIn = true;
+    }
     this.setTitle()
       const primary = '#192f59';
       const secondary = '#2ea9e4';
       this.saveThemeColor(primary);
       this.saveThemeColor(secondary, false);
       this.pageInitialized = true;
+  }
+
+  ngOnInit() {
+   
+    console.log("hereeee->", location.href)
   }
 
   setTitle() {

@@ -26,7 +26,7 @@ export class InstructionsComponent {
 
   saveAndProceed() {
     if(this.disclosureForm.get('guidelinesAcknowledged')?.value) {
-      this.router.navigateByUrl('/home/applications/personal-details');
+      this.router.navigateByUrl('/dashboard/applications/personal-details');
     } else {
       this.disclosureForm.markAllAsTouched();
     }

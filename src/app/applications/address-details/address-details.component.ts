@@ -74,7 +74,7 @@ export class AddressDetailsComponent {
   saveAddressDetails() {
     if(this.addressDetailsForm.valid) {
       this.addressService.saveAddressDetails(this.addressDetailsForm.value).subscribe((response:any) => {
-        this.router.navigateByUrl('/home/applications/educational-details');
+        this.router.navigateByUrl('/dashboard/applications/educational-details');
       })
     }
   }
