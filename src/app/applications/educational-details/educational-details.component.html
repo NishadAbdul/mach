@@ -3,63 +3,12 @@
     <div class="col-8">
         <form [formGroup]="educationalDetailsForm">
             <div class="form_cnt mt-0">
-              <h3>Educational Details</h3>
-          
-              <div class="row">
-                <div class="col-lg-4 col-sm-6">
-                    <mat-form-field class="w-100">
-                        <mat-label>Graduation Country</mat-label>
-                        <mat-select>
-                            <mat-option value="1">Algeria</mat-option>
-                        </mat-select>
-                    </mat-form-field>
-                </div>                    
-                <div class="col-lg-4 col-sm-6">
-                  <mat-form-field class="w-100">
-                    <mat-label>State</mat-label>
-                    <mat-select>
-                        <mat-option value="1">Alabama</mat-option>
-                    </mat-select>
-                  </mat-form-field>
-                </div> 
-                <div class="col-lg-4 col-sm-6">
-                    <mat-form-field class="w-100">
-                        <mat-label>City</mat-label>
-                        <mat-select>
-                            <mat-option value="1">Texas</mat-option>
-                        </mat-select>
-                    </mat-form-field>
-                </div>               
-              </div>
-              <div class="row">                
-                <div class="col-lg-4 col-sm-6">
-                  <mat-form-field class="w-100">
-                    <mat-label>School</mat-label>
-                    <mat-select>
-                        <mat-option value="1">Texas</mat-option>
-                    </mat-select>
-                  </mat-form-field>
-                </div>
-                <div class="col-lg-4 col-sm-6">
-                    <mat-form-field class="w-100">
-                        <mat-label>High School Type</mat-label>
-                        <mat-select>
-                            <mat-option value="1">Texas</mat-option>
-                        </mat-select>
-                      </mat-form-field>
-                </div>
-                <div class="col-lg-4 col-sm-6">
-                    <mat-form-field class="w-100">
-                        <mat-label>Graduation Year</mat-label>
-                        <mat-select>
-                            <mat-option value="1">Texas</mat-option>
-                        </mat-select>
-                      </mat-form-field>
-                </div>
-              </div>
+              <h3>Educational Details
+                <button type="button" mat-stroked-button color="accent" class="ms-4 small_outline_btn" routerLink="/dashboard/applications/certificate">Add New Certificate <mat-icon>add</mat-icon></button></h3>
+              <p>Please verify your certificate details below. If not added yet, please enter your certificate details</p>
             </div>  
                     
-            <mat-card class="mt-4">
+            <mat-card class="mt-2">
                 <mat-card-content>
                     <div class="table-responsive">
                         <table mat-table [dataSource]="dataSource" class="table-container">
@@ -105,7 +54,6 @@
         
                 </mat-card-content>
             </mat-card>
-            
           
             <div class="btn_row mt-4">
               <button type="button" mat-stroked-button color="primary" class="secondary_button mt-2 d-flex ms-auto me-3" aria-label="Back" routerLink="/dashboard/applications/address-details"><mat-icon class="md-22">chevron_left</mat-icon> Back</button>

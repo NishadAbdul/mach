@@ -10,6 +10,7 @@ import { DocumentsComponent } from './documents/documents.component';
 import { PreferencesComponent } from './preferences/preferences.component';
 import { AdditionalDetailsComponent } from './additional-details/additional-details.component';
 import { ReviewComponent } from './review/review.component';
+import { MyCertificateComponent } from './my-certificate/my-certificate.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'welcome', pathMatch: 'full'},
@@ -19,10 +20,11 @@ const routes: Routes = [
   { path: 'personal-details', component: PersonalDetailsComponent, data: { ApplicationProgress : 2}},
   { path: 'address-details', component: AddressDetailsComponent, data: { ApplicationProgress : 3}},
   { path: 'educational-details', component: EducationalDetailsComponent, data: { ApplicationProgress : 4}},
+  { path: 'certificate', component: MyCertificateComponent, data: { ApplicationProgress : 4}},
   { path: 'documents', component: DocumentsComponent, data: { ApplicationProgress : 5}},
   { path: 'program-prefrences', component: PreferencesComponent, data: { ApplicationProgress : 6}},
   { path: 'additional-details', component: AdditionalDetailsComponent, data: { ApplicationProgress : 7}},
-  { path: 'review', component: ReviewComponent, data: { ApplicationProgress : 87}},
+  { path: 'review', component: ReviewComponent, data: { ApplicationProgress : 8}},
 ];
 
 @NgModule({

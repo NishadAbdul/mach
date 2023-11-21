@@ -14,8 +14,13 @@ export class AddressService {
     return this.httpApi.create(formData, url)
   }
 
-  getAddressDetails(request: any) {
-    const url = `${ApiPaths.address}?${request}`;
+  getAddressDetails() {
+    const url = ApiPaths.address;
+    return this.httpApi.get(url);
+  }
+
+  getMasterData() {    
+    const url = ApiPaths.masterDataNew;
     return this.httpApi.get(url);
   }
 }

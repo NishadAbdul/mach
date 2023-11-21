@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { PersonalDetailsService } from '../personal-details/services/personal-details.service';
+import { EducationServiceService } from './services/education.service';
 
 @Component({
   selector: 'app-educational-details',
@@ -15,11 +16,16 @@ export class EducationalDetailsComponent {
     { exam: 'GAT-General Aptitude Test', scoringMethodology: 'Percenatge', score: 0, weightage: 0.00, date: ''},
     { exam: 'Academic Achievement Test', scoringMethodology: 'Percenatge', score: 0, weightage: 0.00, date: ''},
   ];
+  masterData: any;
   constructor(private router: Router,
-    private newUserService: PersonalDetailsService) {}
+    private newUserService: PersonalDetailsService,
+    private educationService: EducationServiceService) {}
 
   ngOnInit() {
     this.formBuilder();
+    this.newUserService.getMasterData().subscribe((data: any) => {
+      this.masterData = data;
+    })
   }
 
   formBuilder() {
@@ -41,5 +47,9 @@ export class EducationalDetailsComponent {
       mobile: new FormControl<string>('', Validators.required),
       emailAddress: new FormControl<string>('', [Validators.required]),
     })
+  }
+
+  addCertificates() {
+    
   }
 }

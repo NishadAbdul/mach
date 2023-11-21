@@ -14,8 +14,13 @@ export class PersonalDetailsService {
     return this.httpApi.create(formData, url)
   }
 
-  getPersonalDetails(request: any) {
-    const url = `${ApiPaths.personaldetails}?${request}`;
+  getPersonalDetails() {
+    const url = ApiPaths.personaldetails;
+    return this.httpApi.get(url);
+  }
+
+  getMasterData() {    
+    const url = ApiPaths.masterData;
     return this.httpApi.get(url);
   }
 }

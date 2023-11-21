@@ -60,8 +60,7 @@ export class WelcomeComponent {
 
     startApplication() {
       this.createAppService.startApplication(this.createApplicationForm.value).subscribe((response: any) => {
-        this.appState.setSharedObj('applicationNumber', response.applicationNumber);
-        this.appState.setSharedObj('applicationRecId', response.applicationRecId);
+        this.appState.setSharedObj('identifier', response.identifier);
         this.closeModals();
         this.router.navigateByUrl('/dashboard/applications/instructions')
       })

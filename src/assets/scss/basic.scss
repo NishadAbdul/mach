@@ -803,6 +803,20 @@ h4 {
     }
 }
 
+.small_outline_btn  {
+    font-size: 0.735rem !important;
+    height: 32px !important;
+    padding: 0 16px !important;
+    border-color: $secondary_color !important;
+    .mat-icon {
+        font-size: 1rem !important;
+    }
+    &:hover {
+        background-color: $secondary_color !important;
+        color: $white;
+    }
+}
+
 
 
 @import 'media';

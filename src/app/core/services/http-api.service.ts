@@ -11,9 +11,14 @@ export class HttpApiService {
     private appState: AppState) { 
   }
 
-  private getApplicationIdentifier(): string {
+  private getuserIdentifier(): string {
     return this.appState.applicationIdentifier ?? '';
   }
+
+  private getApplicationIdentifier(): string {
+    return this.appState.getSharedObj('identifier') ?? '00000000-0000-0000-0000-000000000000';
+  }
+  
 
   public fetch(url: string): Observable<any> {
     return this.httpClient.get(url)
@@ -23,7 +28,12 @@ export class HttpApiService {
   }
 
   public get<TT>(url: string): Observable<TT> {
-    const headerJson = new HttpHeaders({ 'Authorization': this.getApplicationIdentifier() });
+    const headerJson = new HttpHeaders(
+      { 
+        'Authorization': this.getuserIdentifier(), 
+        'identifier': this.getApplicationIdentifier()
+      },
+      );
     const options = {
       headers: headerJson,
       params: new HttpParams()
@@ -35,9 +45,10 @@ export class HttpApiService {
   }
 
   public create<TT>(body: Object, url: string): Observable<TT> {
-    const header = {
-      'Authorization': this.getApplicationIdentifier()
-    };
+    const header = { 
+      'Authorization': this.getuserIdentifier(), 
+      'identifier': this.getApplicationIdentifier()
+    }
     const options = {
       headers: new HttpHeaders(header)
     };
@@ -49,8 +60,9 @@ export class HttpApiService {
   }
 
   public update<TT>(body: Object, url: string): Observable<TT> {
-    const header = {
-      'Authorization': this.getApplicationIdentifier()
+    const header = { 
+      'Authorization': this.getuserIdentifier(), 
+      'identifier': this.getApplicationIdentifier()
     };
     const options = {
       headers: new HttpHeaders(header)

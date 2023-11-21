@@ -7,5 +7,7 @@ export enum ApiPaths {
   personaldetails = 'PersonalDetails',
   startApplication = 'CreateApplication',
   courseMasterData = 'api/course',
-  address = 'AddressDetails'
+  address = 'AddressDetails',
+  masterData = 'api/MasterData/Countries',
+  masterDataNew = 'api/MasterData/EducationData'
 } 

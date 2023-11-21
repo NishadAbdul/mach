@@ -12,24 +12,25 @@ import { AppState } from 'src/app/app.service';
 })
 export class PersonalDetailsComponent {
   public basicDetailsForm !: FormGroup;
-  appIdentifier: string = '';
+  public isoDetails: any = [];
   constructor(private router: Router,
     private newUserService: PersonalDetailsService,
     private appState: AppState) {
-      this.appIdentifier = this.appState.getSharedObj('applicationNumber');      
+      
     }
 
   ngOnInit() {
     this.formBuilder();
-    const request = `ApplicationNumber=${this.appIdentifier}&ApplicationRecId=${this.appState.getSharedObj('applicationRecId')}`
-    this.newUserService.getPersonalDetails(request).subscribe((data: any) => {
+    this.newUserService.getPersonalDetails().subscribe((data: any) => {
       this.setPersonalDetails(data);
-    })    
+    })  
+    this.newUserService.getMasterData().subscribe((data: any) => {
+      this.isoDetails = data[1].fieldValues;
+    })   
   }
 
   setPersonalDetails(data: any) {
     this.basicDetailsForm.patchValue({
-      applicationNumber: data?.applicationNumber ? data?.applicationNumber : this.appIdentifier,
       isArabCountry: data?.isArabCountry,
       nationality: data?.nationality,
       nationalId: data?.nationalId,
@@ -44,14 +45,13 @@ export class PersonalDetailsComponent {
       fatherNameLocal: data?.fatherNameLocal,
       grandFatherNameLocal: data?.grandFatherNameLocal,
       isdCode: data?.isdCode,
-      primaryMobileNo: data?.primaryMobileNo,
-      primaryEmailId: data?.primaryEmailId,
+      mobile: data?.primaryMobileNo,
+      emailAddress: data?.primaryEmailId,
     })
   }
 
   formBuilder() {
     this.basicDetailsForm = new FormGroup({
-      applicationNumber: new FormControl<string>(this.appIdentifier),
       isArabCountry: new FormControl<boolean>(true, Validators.required),
       nationality: new FormControl<string>(''),
       nationalId: new FormControl<string>('', Validators.required),
@@ -66,8 +66,8 @@ export class PersonalDetailsComponent {
       fatherNameLocal: new FormControl<string>('', [Validators.required, Validators.pattern('[\u0600-\u06FF]*')]),
       grandFatherNameLocal: new FormControl<string>('', [Validators.required, Validators.pattern('[\u0600-\u06FF]*')]),
       isdCode: new FormControl<string>(''),
-      primaryMobileNo: new FormControl<string>('', Validators.required),
-      primaryEmailId: new FormControl<string>('', [Validators.required]),
+      mobile: new FormControl<string>('', Validators.required),
+      emailAddress: new FormControl<string>('', [Validators.required]),
     })
   }
 

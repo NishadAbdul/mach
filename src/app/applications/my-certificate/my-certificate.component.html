@@ -1,0 +1,70 @@
+  
+<div class="row">
+    <div class="col-8">
+        <form [formGroup]="educationalDetailsForm">
+            <div class="form_cnt mt-0">
+              <h3>Educational Details</h3>
+              <p>Please enter your certificate details</p>
+              <div class="row">
+                <div class="col-lg-4 col-sm-6">
+                    <mat-form-field class="w-100">
+                        <mat-label>Graduation Country</mat-label>
+                        <mat-select formControlName="countryId">
+                            <mat-option [value]="country?.countryRecId" *ngFor="let country of masterData?.countryData">{{country?.countryName}}</mat-option>
+                        </mat-select>
+                    </mat-form-field>
+                </div>                    
+                <div class="col-lg-4 col-sm-6">
+                  <mat-form-field class="w-100">
+                    <mat-label>State</mat-label>
+                    <mat-select formControlName="provinceName">
+                      <mat-option [value]="province?.provinceName" *ngFor="let province of masterData?.provinceData">{{province?.provinceName}}</mat-option>
+                    </mat-select>
+                  </mat-form-field>
+                </div>     
+                <div class="col-lg-4 col-sm-6">
+                    <mat-form-field class="w-100">
+                        <mat-label>City</mat-label>
+                        <mat-select formControlName="cityName">
+                          <mat-option [value]="city?.cityName" *ngFor="let city of masterData?.cityData">{{city?.cityName}}</mat-option>
+                        </mat-select>
+                    </mat-form-field>
+                </div>           
+              </div>
+              <div class="row">   
+                <div class="col-lg-4 col-sm-6">
+                    <mat-form-field class="w-100">
+                      <mat-label>Certificate Type</mat-label>
+                      <mat-select formControlName="certificateType">
+                        <mat-option [value]="cerType?.educationTypeEngName" *ngFor="let cerType of masterData?.educationTypeData">{{cerType?.educationTypeEngName}}</mat-option>
+                      </mat-select>
+                    </mat-form-field>
+                  </div>             
+                <div class="col-lg-4 col-sm-6">
+                    <mat-form-field class="w-100">
+                        <mat-label>School Name</mat-label>
+                        <mat-select formControlName="schoolName">
+                          <mat-option [value]="school?.studyCenterEngName" *ngFor="let school of masterData?.studyCenterData">{{school?.studyCenterEngName}}</mat-option>
+                        </mat-select>
+                      </mat-form-field>
+                </div>                
+              </div>
+            </div>            
+            
+          
+            <div class="btn_row mt-4">
+              <button type="button" mat-stroked-button color="primary" class="secondary_button mt-2 d-flex ms-auto me-3" aria-label="Back" routerLink="/dashboard/applications/educational-details"><mat-icon class="md-22">chevron_left</mat-icon> Back</button>
+              <button type="button" mat-flat-button color="primary" class="primary_button mt-2 d-flex"  routerLink="/dashboard/applications/educational-details">Done</button>
+            </div>
+        </form>
+    </div>
+    <div class="col-4">
+        <app-stepper [stepIndex]="4" class="d-none d-sm-block mob-hidden"></app-stepper>
+    </div>
+</div>
+
+  
+  
+  
+  
+  

@@ -17,6 +17,7 @@ import { AddressDetailsComponent } from './address-details/address-details.compo
 import { ReviewComponent } from './review/review.component';
 import { CdkDropList, CdkDrag} from '@angular/cdk/drag-drop';
 import { MaterialModule } from '../material/material.module';
+import { MyCertificateComponent } from './my-certificate/my-certificate.component';
 
 
 @NgModule({
@@ -31,6 +32,7 @@ import { MaterialModule } from '../material/material.module';
     PreferencesComponent,
     AddressDetailsComponent,
     ReviewComponent,
+    MyCertificateComponent
   ],
   imports: [
     CommonModule,
