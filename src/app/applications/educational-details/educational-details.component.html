@@ -13,12 +13,12 @@
                     <div class="table-responsive">
                         <table mat-table [dataSource]="dataSource" class="table-container">
                             <ng-container matColumnDef="exam">
-                                <th mat-header-cell *matHeaderCellDef> Exam </th>
+                                <th mat-header-cell *matHeaderCellDef> Country </th>
                                 <td mat-cell *matCellDef="let element">{{element.exam}}</td>
                             </ng-container>
                         
                             <ng-container matColumnDef="scoringMethodology">
-                                <th mat-header-cell *matHeaderCellDef> Scoring Methodology </th>
+                                <th mat-header-cell *matHeaderCellDef> City </th>
                                 <td mat-cell *matCellDef="let element">{{element.scoringMethodology}}</td>
                             </ng-container>
                         
@@ -28,23 +28,25 @@
                             </ng-container>
 
                             <ng-container matColumnDef="weightage">
-                                <th mat-header-cell *matHeaderCellDef> Calculated Weightage </th>
+                                <th mat-header-cell *matHeaderCellDef> School Name </th>
                                 <td mat-cell *matCellDef="let element">{{element.weightage}}</td>
                             </ng-container>
                         
                             <ng-container matColumnDef="date">
-                                <th mat-header-cell *matHeaderCellDef> Exam Date </th>
+                                <th mat-header-cell *matHeaderCellDef> Graduation Year </th>
                                 <td mat-cell *matCellDef="let element">{{element.date}}</td>
                             </ng-container>
-                        
-                            <ng-container matColumnDef="action">
-                                <th mat-header-cell *matHeaderCellDef> Action </th>
-                                <td mat-cell *matCellDef="let element">
-                                    <button mat-mini-fab color="primary" class="fr-fab">
-                                        <mat-icon>edit</mat-icon>
-                                      </button>
-                                </td>
+
+                            <ng-container matColumnDef="year">
+                                <th mat-header-cell *matHeaderCellDef> Certificate Type </th>
+                                <td mat-cell *matCellDef="let element">{{element.year}}</td>
                             </ng-container>
+                        
+                            <tr class="mat-row" *matNoDataRow>
+                                <td class="mat-cell text-center pt-4" [attr.colspan]="displayedColumns.length">
+                                    No Certificates found.
+                                </td>
+                            </tr>
                         
                             <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
                             <tr mat-row *matRowDef="let row; let even = even; columns: displayedColumns;" [ngClass]="{'bg-light': even}"></tr>

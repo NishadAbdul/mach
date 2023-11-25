@@ -25,7 +25,7 @@ export class AddressDetailsComponent {
 
   getAddressDetails() {
     this.addressService.getAddressDetails().subscribe((data: any) => {
-      this.setAddressDetails(data);
+      this.setAddressDetails(data?.applicantAddresses);
     })
     this.addressService.getMasterData().subscribe((data: any) => {
       this.masterData = data;
@@ -33,22 +33,32 @@ export class AddressDetailsComponent {
   }
 
   setAddressDetails(data: any) {
-    this.addressDetailsForm.patchValue({
-      "contactAddress": data?.contactAddress,
-      "contactCityName": data?.contactCityName,
-      "contactCountryId": data?.contactCountryId,
-      "contactPobox": data?.contactPobox,
-      "contactPostalCode": data?.contactPostalCode,
-      "contactProvinceName": data?.contactProvinceName,
-      "contactHomeTelephoneNumber": data?.contactHomeTelephoneNumber,
-      "permanentAddress": data?.permanentAddress,
-      "permanentCityName": data?.permanentCityName,
-      "permanentCountryId": data?.permanentCountryId,
-      "permanentHomeTelephoneNumber": data?.permanentHomeTelephoneNumber,
-      "permanentPobox": data?.permanentPobox,
-      "permanentPostalCode": data?.permanentPostalCode,
-      "permanentProvinceName": data?.permanentProvinceName
+    if (data?.length > 0) {
+      if (data?.length > 1) {
+        const address = this.addressDetailsForm.get('addressDetails') as FormArray;
+        address.push(this.createAddressFormGroup(1));  
+      }
+      data.forEach((add: any, index: number) => {
+        this.setAddressFieldValues(add, index);
+      })
+    }
+    
+  }
+
+  setAddressFieldValues(data: any, index: number) {
+    this.addressGroup.at(index).patchValue({
+      addressId: data?.addressId,
+      address: data?.address,
+      pobox: data?.pobox,
+      countryId: data?.countryId,
+      cityName: data?.cityName,
+      provinceName: data?.provinceName,
+      postalCode: data?.postalCode,
+      homeTelephoneNumber:  data?.homeTelephoneNumber
     })
+    if (index === 1) {
+      this.sameAsPermanent = false;
+    }
   }
 
   formBuilder() {

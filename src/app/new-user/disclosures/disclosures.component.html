@@ -1,39 +1,39 @@
 
     <div class="col-sm-12 mt-4">
-      <h3>Welcome to Mohammed Al-Mana College for Medical Science Admission Portal</h3>
+      <h3 translate>Welcome to Mohammed Al-Mana College for Medical Science Admission Portal</h3>
 
       <div class="disclosure_cnt" [formGroup]="disclosureForm">
-        <h4>The Admissions for Fall 2023-2024 is now open, to apply to MACHS please go through the guidelines</h4>
+        <h4 translate>The Admissions for the term 2023-2024 is now open, to apply to MACHS please go through the guidelines</h4>
         <ol class="mt-4">
-          <li>
+          <li translate>
             Fill your application with Personal Information, High School Information and your Program Preference. You can choose more than one program, in your order of preference to have the higher chances of admission
           </li>
-          <li>
+          <li translate>
             Make sure you will submit the application form with all the required and correct information. You can choose to submit your documents later, if you do not have them handy right now
           </li>
-          <li>
+          <li translate>
             Pay the non-refundable admission fee of 500 SAR, from the payment link received from the college. You will be given full information about details, once you submit the application
           </li>
-          <li>
+          <li translate>
             In case, you have chosen to submit your documents later,you need to submit them before the admission can be confirmed from MACHS
           </li>
-          <li>
+          <li translate>
             Everyone prospect student has to take English Test and secure the score minimum score of 20 for all Bachelors Programs and minimum 41 for Diploma transfer Programs
           </li>
-          <li>
+          <li translate>
             Our Admission Team will review your details thoroughly. We may contact you, in case we need any further information. So, it is very important to have your contact details correctly filled in, before submitting the application form
           </li>
-          <li>
+          <li translate>
             Once your admission is confirmed, you will receive a confirmation email from us with the next steps. Email filled in your application form will be used for all communications. You will be notified about the program that was given acceptance for, and the classes start date will be notified
           </li>
         </ol>
         <mat-checkbox color="primary" class="disclosure_check mt-2" formControlName="guidelinesAcknowledged">
-          I read all the application process guidelines above and I understand MACHs admission workflow. I take the responsibility of accurate submission information in the application form
+          <span translate>I read all the application process guidelines above and I understand MACHs admission workflow I take the responsibility of accurate submission information in the application form</span>
         </mat-checkbox>
-        <mat-error class="orig-warning" *ngIf="!disclosureForm.get('guidelinesAcknowledged')?.valid && disclosureForm.get('guidelinesAcknowledged')?.touched && disclosureForm.controls['guidelinesAcknowledged']?.value !== true">
+        <mat-error translate class="orig-warning" *ngIf="!disclosureForm.get('guidelinesAcknowledged')?.valid && disclosureForm.get('guidelinesAcknowledged')?.touched && disclosureForm.controls['guidelinesAcknowledged']?.value !== true">
           Please check the acknowledgement.
        </mat-error>
-      <button mat-raised-button color="primary" class="primary_button my-4 d-flex ms-auto" (click)="saveAndProceed()">Next<mat-icon class="md-22" iconPositionEnd>chevron_right</mat-icon></button>
+        <button mat-raised-button color="primary" class="primary_button my-4 d-flex ms-auto" (click)="saveAndProceed()"><span translate>Next</span><mat-icon class="md-22" iconPositionEnd>chevron_right</mat-icon></button>
 
       
       </div>

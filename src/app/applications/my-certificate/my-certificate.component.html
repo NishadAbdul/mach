@@ -47,14 +47,22 @@
                           <mat-option [value]="school?.studyCenterEngName" *ngFor="let school of masterData?.studyCenterData">{{school?.studyCenterEngName}}</mat-option>
                         </mat-select>
                       </mat-form-field>
-                </div>                
+                </div>  
+                <div class="col-lg-4 col-sm-6">
+                    <mat-form-field class="w-100">
+                        <mat-label>High School Type</mat-label>
+                        <mat-select formControlName="gradeType">
+                          <mat-option [value]="type?.highSchoolTypeEnName" *ngFor="let type of masterData?.highSchoolTypeData">{{type?.highSchoolTypeEnName}}</mat-option>
+                        </mat-select>
+                      </mat-form-field>
+                </div>                 
               </div>
             </div>            
             
           
             <div class="btn_row mt-4">
               <button type="button" mat-stroked-button color="primary" class="secondary_button mt-2 d-flex ms-auto me-3" aria-label="Back" routerLink="/dashboard/applications/educational-details"><mat-icon class="md-22">chevron_left</mat-icon> Back</button>
-              <button type="button" mat-flat-button color="primary" class="primary_button mt-2 d-flex"  routerLink="/dashboard/applications/educational-details">Done</button>
+              <button type="button" mat-flat-button color="primary" class="primary_button mt-2 d-flex" (click)="addCertificates()">Done</button>
             </div>
         </form>
     </div>

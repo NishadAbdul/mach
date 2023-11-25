@@ -18,12 +18,16 @@ import { MobileFooterComponent } from './components/mobile-footer/mobile-footer.
 import { MobileStepperComponent } from './components/mobile-stepper/mobile-stepper.component';
 import { StepperComponent } from './components/stepper/stepper.component';
 import { MenuBarComponent } from './components/menubar/menubar.component';
+import {MatButtonToggleModule} from '@angular/material/button-toggle';
+import { FormsModule } from '@angular/forms';
 
 const maskConfigFunction: () => Partial<IConfig> = () => {
   return {
     validation: false
   }
 };
+
+
 
 @NgModule({
   declarations: [
@@ -38,10 +42,12 @@ const maskConfigFunction: () => Partial<IConfig> = () => {
   ],
   imports: [
     CommonModule,
+    FormsModule,
     MatDialogModule,
     MatIconModule,
     MatButtonModule,
     MatBottomSheetModule,
+    MatButtonToggleModule,
     MatMenuModule,
     MatTooltipModule,
     NgxMaskDirective,

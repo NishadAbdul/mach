@@ -9,5 +9,9 @@ export enum ApiPaths {
   courseMasterData = 'api/course',
   address = 'AddressDetails',
   masterData = 'api/MasterData/Countries',
-  masterDataNew = 'api/MasterData/EducationData'
+  masterDataNew = 'api/MasterData/EducationData',
+  education = 'EducationDetails',
+  documents = 'CheckList',
+  preferences = 'ProgramPreferences',
+  additional = 'AdditionalDetails'
 } 

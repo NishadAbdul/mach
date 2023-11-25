@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
+import { AdditionalDetailsService } from './services/additional-details.service';
 
 @Component({
   selector: 'app-additional-details',
@@ -8,9 +9,20 @@ import { FormControl, FormGroup } from '@angular/forms';
 })
 export class AdditionalDetailsComponent {
   additionalDetailsForm!: FormGroup;
-  constructor() {
+  additionalDetails: any = [];
+  constructor(private additionalDetailsService: AdditionalDetailsService) {
     this.additionalDetailsForm = new FormGroup({
       name: new FormControl('')
+    })
+  }
+
+  ngOnInit() {
+    this.getAdditionalDetails();
+  }
+
+  getAdditionalDetails() {
+    this.additionalDetailsService.getAdditionalDetails().subscribe((data: any) => {
+      this.additionalDetails = data;
     })
   }
 }

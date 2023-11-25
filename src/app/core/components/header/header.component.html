@@ -3,6 +3,9 @@
     <img src="assets/images/logo.webp" class="brand" alt="Logo" />
   </div>
   <div class="contact d-none d-md-block">
-    <button mat-stroked-button color="accent" aria-label="Go to contact us page" class="secondary_outline_btn" (click)="setLanguage()">English</button>
+    <mat-button-toggle-group class="mach-toggle" (change)="setLanguage($event)" color="accent" [(ngModel)]="selectedLanguage" color="accent" aria-label="Select Language">
+      <mat-button-toggle value="en">English</mat-button-toggle>
+      <mat-button-toggle value="ar">عربي</mat-button-toggle>
+    </mat-button-toggle-group>
   </div>
 </header>

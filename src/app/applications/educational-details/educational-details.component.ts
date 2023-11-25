@@ -3,6 +3,7 @@ import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { PersonalDetailsService } from '../personal-details/services/personal-details.service';
 import { EducationServiceService } from './services/education.service';
+import { MatTableDataSource } from '@angular/material/table';
 
 @Component({
   selector: 'app-educational-details',
@@ -11,11 +12,8 @@ import { EducationServiceService } from './services/education.service';
 })
 export class EducationalDetailsComponent {
   public educationalDetailsForm !: FormGroup;
-  public displayedColumns: string[] = ['exam', 'scoringMethodology', 'score', 'weightage', 'date', 'action'];
-  public dataSource: any = [
-    { exam: 'GAT-General Aptitude Test', scoringMethodology: 'Percenatge', score: 0, weightage: 0.00, date: ''},
-    { exam: 'Academic Achievement Test', scoringMethodology: 'Percenatge', score: 0, weightage: 0.00, date: ''},
-  ];
+  public displayedColumns: string[] = ['exam', 'scoringMethodology', 'score', 'weightage', 'date', 'year'];
+  public dataSource = new MatTableDataSource();
   masterData: any;
   constructor(private router: Router,
     private newUserService: PersonalDetailsService,
@@ -25,6 +23,9 @@ export class EducationalDetailsComponent {
     this.formBuilder();
     this.newUserService.getMasterData().subscribe((data: any) => {
       this.masterData = data;
+    });
+    this.educationService.getEducationDetails().subscribe((response: any) => {
+      this.dataSource.data = response;
     })
   }
 
@@ -50,6 +51,6 @@ export class EducationalDetailsComponent {
   }
 
   addCertificates() {
-    
+
   }
 }

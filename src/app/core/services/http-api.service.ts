@@ -16,7 +16,11 @@ export class HttpApiService {
   }
 
   private getApplicationIdentifier(): string {
-    return this.appState.getSharedObj('identifier') ?? '00000000-0000-0000-0000-000000000000';
+    let identfiier = '00000000-0000-0000-0000-000000000000';
+    if (this.appState.getSharedObj('identifier')) {
+      identfiier = this.appState.getSharedObj('identifier');
+    }
+    return identfiier;
   }
   
 

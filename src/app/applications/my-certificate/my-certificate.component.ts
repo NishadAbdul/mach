@@ -27,13 +27,18 @@ export class MyCertificateComponent {
     this.educationalDetailsForm = new FormGroup({
       countryId: new FormControl<number>(0),
       provinceName: new FormControl<string>(''),
-      cityName: new FormControl<string>('', Validators.required),
-      certificateType: new FormControl<string>('', Validators.required),
-      schoolName: new FormControl<string>('', Validators.required)
+      cityName: new FormControl<string>(''),
+      certificateType: new FormControl<string>(''),
+      schoolName: new FormControl<string>(''),
+      gradeType:  new FormControl<string>(''),
+      externalCode:  new FormControl<string>(''),
+      studyCenterName:  new FormControl<string>(''),
     })
   }
 
   addCertificates() {
-    
+    this.educationService.saveCertificates(this.educationalDetailsForm.value).subscribe((data:any)=> {
+      this.router.navigateByUrl('/dashboard/applications/educational-details')
+    })
   }
 }

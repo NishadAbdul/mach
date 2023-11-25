@@ -8,6 +8,7 @@ import { OriginateOnEnterDirective } from './directives/orig-enter.directive';
 import { ConfirmDialogComponent } from './components/confirm-dialog/confirm-dialog.component';
 import { TruncateTextPipe } from './pipes/truncateText.pipe';
 import { MaterialModule } from '../material/material.module';
+import { TranslateModule } from '@ngx-translate/core';
 
 
 
@@ -23,14 +24,16 @@ import { MaterialModule } from '../material/material.module';
     RouterModule,
     CoreModule,
     MaterialModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    TranslateModule
   ],
   exports: [
     DisableCopyPasteDirective,
     OriginateOnEnterDirective,
     TruncateTextPipe,
     ConfirmDialogComponent,
-    MaterialModule
+    MaterialModule,
+    TranslateModule
   ]
 })
 export class SharedModule { }

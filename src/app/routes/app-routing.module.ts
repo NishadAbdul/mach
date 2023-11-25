@@ -6,6 +6,7 @@ import { NotFoundComponent } from "../layout/not-found/not-found.component";
 import { WelcomeComponent } from '../welcome/welcome.component';
 import { DashboardComponent } from '../layout/dashboard/dashboard.component';
 import { DASHBOARD_ROUTES } from './dashboard-routing.module';
+import { ADMIN_ROUTES } from './admin-routing.module';
 
 const routes: Routes = [
   {
@@ -17,6 +18,9 @@ const routes: Routes = [
   {
     path: 'dashboard', component: DashboardComponent, children: DASHBOARD_ROUTES
   },  
+  {
+    path: 'admin', component: DashboardComponent, children: ADMIN_ROUTES
+  },
   {
     path: 'welcome', component: WelcomeComponent   
   },

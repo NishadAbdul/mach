@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import {CdkDragDrop, CdkDropList, CdkDrag, moveItemInArray} from '@angular/cdk/drag-drop';
+import { PreferencesService } from './services/preferences.service';
 @Component({
   selector: 'app-preferences',
   templateUrl: './preferences.component.html',
@@ -7,18 +8,20 @@ import {CdkDragDrop, CdkDropList, CdkDrag, moveItemInArray} from '@angular/cdk/d
 })
 export class PreferencesComponent {
   preferenceName: string = '';
-  preferenceGroupList: any = [{
-    name: 'Prefrence 1'
-  }, {
-    name: 'Prefrence 2'
-  },{
-    name: 'Prefrence 3'
-  },{
-    name: 'Prefrence 4'
-  }]
+  preferenceGroupList: any = []
 
-  constructor() {
+  constructor(private prefernceServices: PreferencesService) {
     
+  }
+
+  ngOnInit() {
+    this.getAllPrefrences();
+  }
+
+  getAllPrefrences() {
+    this.prefernceServices.getPreferences().subscribe((data: any) => {
+      this.preferenceGroupList = data;
+    })
   }
 
   drop(event: CdkDragDrop<string[]>) {

@@ -2,6 +2,8 @@ import { Component } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { Router } from '@angular/router';
 import { ConfirmDialogComponent, ConfirmDialogModel } from 'src/app/shared/components/confirm-dialog/confirm-dialog.component';
+import { DocumentsService } from './services/documents.service';
+import { FormArray, FormControl, FormGroup } from '@angular/forms';
 
 @Component({
   selector: 'app-documents',
@@ -9,24 +11,8 @@ import { ConfirmDialogComponent, ConfirmDialogModel } from 'src/app/shared/compo
   styleUrls: ['./documents.component.scss']
 })
 export class DocumentsComponent {
-  documents: any = [
-    {
-      name: 'National or Iqama Copy',
-      uploaded: false,
-      file_name: 'true-jinu.pdf',
-      identifier: '1'
-    }, {
-      name: 'Passport Copy',
-      uploaded: false,
-      file_name: '',
-      identifier: '2'
-    },{
-      name: 'GAT - Genral Aptitude Test',
-      uploaded: true,
-      file_name: 'gat.pdf',
-      identifier: '3'
-    }
-  ]
+  documentsForm!: FormGroup;
+  documents: any = []
   documentCount: number = 0;
   touched: boolean = false;
   typeInvalid: any = {};
@@ -35,8 +21,38 @@ export class DocumentsComponent {
 
   constructor(
     public dialog: MatDialog,
-    public router: Router) {
+    public router: Router,
+    private documentsService: DocumentsService) {
 
+  }
+
+  ngOnInit() {
+    this.formBuilder();
+    this.getDocuments();
+  }
+
+  getDocuments() {
+    this.documentsService.getDocuments().subscribe((data: any) => {
+      this.documents = data;
+    })
+  }
+
+
+  formBuilder() {
+    this.documentsForm = new FormGroup({
+      documents: new FormArray([])
+    })
+  }
+
+  private createDocumentsFormGroup(index: number = 0): FormGroup {
+    return  new FormGroup({
+      checkListbyTermRecId: new FormControl<number>(0),
+      name: new FormControl<string | null>(""),
+      isUploaded: new FormControl<boolean>(false),
+      fileName: new FormControl<string | null>(""),
+      fileData: new FormControl<string | null>(""),
+      displayOrder: new FormControl<number | null>(0)
+    })
   }
 
   deleteDocument(identifier: string) {
@@ -79,7 +95,7 @@ export class DocumentsComponent {
         const updatedDoc = [...this.documents];
         updatedDoc.map((data: any) => {
           if (data.identifier === identifier) {
-            data.uploaded = true;
+            data.isUploaded = true;
             data.fileName = document.name;
           }
         })

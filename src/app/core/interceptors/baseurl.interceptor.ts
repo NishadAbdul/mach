@@ -16,7 +16,12 @@ export class BaseUrlInterceptorService implements HttpInterceptor {
 
   }
   intercept(request: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
-    if (request.params.get('setbaseurl') !== 'stop') {
+    const url = request.url;
+    let isTranslate = false;
+    if (url === "./assets/i18n/ar.json" || url === "./assets/i18n/en.json") {
+      isTranslate = true;
+    }
+    if (request.params.get('setbaseurl') !== 'stop' && !isTranslate) {
       let baseUrl = environment.baseUrl;
       request = request.clone({ url: `${baseUrl}${request.url}` });
     }

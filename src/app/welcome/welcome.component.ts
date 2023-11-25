@@ -43,7 +43,6 @@ export class WelcomeComponent {
     public sanitizer: DomSanitizer,
     private appState: AppState) {
       if(this.appState.applicationIdentifier) {
-        debugger;
         this.appState.deleteSharedObj('applicationIdentifier');
       }
     this.loginForm = this.fb.group({

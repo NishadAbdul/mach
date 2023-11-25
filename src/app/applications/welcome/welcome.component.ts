@@ -25,7 +25,6 @@ export class WelcomeComponent {
     }
 
     ngOnInit() {
-      debugger;
       this.createAppService.getCourseMasterData().subscribe((data: any) => {
         this.courses = data;
       })
@@ -60,10 +59,9 @@ export class WelcomeComponent {
 
     startApplication() {
       this.createAppService.startApplication(this.createApplicationForm.value).subscribe((response: any) => {
-        this.appState.setSharedObj('identifier', response.identifier);
+        this.appState.setSharedObj('identifier', response?.applicationIdentifier);
         this.closeModals();
         this.router.navigateByUrl('/dashboard/applications/instructions')
-      })
-      this.router.navigateByUrl('/dashboard/applications/instructions')
+      });
     }
 }
