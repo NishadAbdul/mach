@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { ReviewService } from './services/review.service';
 
 @Component({
   selector: 'app-review',
@@ -8,4 +9,15 @@ import { Component } from '@angular/core';
 export class ReviewComponent {
   activeLink = 'Personal Details';
   isEdit: boolean = false;
+  appDetails: any;
+  constructor(private reviewService: ReviewService) {
+    this.getApplciationDetails()
+  }
+
+
+  getApplciationDetails() {
+    this.reviewService.getApplicationDetails().subscribe(response => {
+      this.appDetails = response;
+    })
+  }
 }

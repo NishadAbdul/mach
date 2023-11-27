@@ -303,7 +303,7 @@ h4 {
         background: $sidebar_bg;
         flex-direction: column;
         position: relative;
-        padding: 30px;
+        padding: 15px 30px;
         height: 100%;
 
         .footer_cnt {
@@ -583,7 +583,7 @@ h4 {
             display: inline-flex;
             height: 47px;
             align-items: center;
-            
+            color: $primary_color;
 
             .mat-icon {
                 font-size: 2rem;
@@ -994,6 +994,94 @@ h4 {
            font-size: 18px;
        }
    }
+}
+.mach-toggle {
+    border-radius: 20px !important;
+    color: $primary_color !important;
+    border-color: $secondary_color !important;
+    background: white;
+    .mat-button-toggle-appearance-standard .mat-button-toggle-focus-overlay {
+        background: $primary_color !important;
+        color: $secondary_color !important;
+    }
+    .mat-button-toggle {
+        &.mat-button-toggle-checked {
+            background: $secondary_color !important;
+            color: white;
+        }
+        &:hover {
+            color: white !important;
+        }
+        .mat-button-toggle-button {
+            .mat-button-toggle-label-content {
+                z-index: 99;
+            }
+            .mat-button-toggle-label-content {
+                line-height: 32px !important;
+            }
+        }
+    }
+}
+
+.en {
+    direction: ltr;
+}
+.ar {
+    direction: rtl;
+    .mat-mdc-dialog-container {
+        .dialog_title {
+            padding: 20px 30px 0 10px !important;
+            .close_btn {
+                margin-left: unset !important;
+                margin-right: auto !important;
+            }
+        }
+        direction: rtl !important;
+    }
+    .page_wrp {
+        padding: 30px 30px 30px 0px !important;
+    } 
+    .main_wrp.show_menu {
+        padding-right: 60px !important;
+        padding-left: unset !important;
+    }
+    .nav_wrp {
+        right: 0 !important;
+        left: unset !important;
+    }
+    .header_wrp .contact {
+        margin-right: auto;
+        margin-left: unset !important;
+    }
+    ol {
+        list-style-type: arabic-indic;
+        direction: rtl;
+        counter-reset: item;
+    }
+    .ms-auto {
+        margin-right: auto !important;
+        margin-left: unset !important;
+    }
+    .me-3{
+        margin-left: 1rem !important;
+        margin-right: unset;
+    }
+
+    .wizard_block {    
+        ul.main {    
+            li {
+                padding-right: 25px;    
+                padding-left: unset;
+                &::before {
+                    right: -12px;
+                }
+    
+                &:not(:last-child)::after {
+                    right: 0;
+                }                 
+            }
+        }
+    }
 }
 
 

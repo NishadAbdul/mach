@@ -20,6 +20,7 @@ import { StepperComponent } from './components/stepper/stepper.component';
 import { MenuBarComponent } from './components/menubar/menubar.component';
 import {MatButtonToggleModule} from '@angular/material/button-toggle';
 import { FormsModule } from '@angular/forms';
+import { TranslateModule } from '@ngx-translate/core';
 
 const maskConfigFunction: () => Partial<IConfig> = () => {
   return {
@@ -51,7 +52,8 @@ const maskConfigFunction: () => Partial<IConfig> = () => {
     MatMenuModule,
     MatTooltipModule,
     NgxMaskDirective,
-    NgxMaskPipe
+    NgxMaskPipe,
+    TranslateModule
   ],
   exports: [
     HeaderComponent,

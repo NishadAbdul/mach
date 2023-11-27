@@ -33,6 +33,7 @@ export class MyCertificateComponent {
       gradeType:  new FormControl<string>(''),
       externalCode:  new FormControl<string>(''),
       studyCenterName:  new FormControl<string>(''),
+      grade: new FormControl<string>('')
     })
   }
 

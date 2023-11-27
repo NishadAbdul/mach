@@ -1,8 +1,8 @@
 <div class="row">
     <div class="col-8">
         <div class="form_cnt mt-0">
-            <h3>Rafel Rodriguez</h3>
-            <p>Course Name | Course ID | 2022-2023</p>
+            <h3>{{appDetails?.personalDetails?.firstNameEng}} {{appDetails?.personalDetails?.lastNameEng}}</h3>
+            <p>{{appDetails?.degreeType}} | {{appDetails?.termName}}</p>
             <p>    
                 <button class="edit-btn ms-0" color="accent" mat-flat-button><mat-icon>arrow_left</mat-icon>Back</button>
                 <button class="edit-btn ms-1" color="primary" mat-flat-button><mat-icon>download</mat-icon> Download</button>
@@ -20,24 +20,53 @@
                         <div class="row">
                             <div class="col-6">
                                 <div class="user-details">
-                                    <span>Full Name</span><strong>Rafel Rodriguez</strong>
+                                    <span>Soudi National</span><strong>Yes</strong>
                                 </div>
                                 <div class="user-details">
-                                    <span>Date of Birth</span><strong>10th Sep 1944</strong>
+                                    <span>First Name in English</span><strong>{{appDetails?.personalDetails?.firstNameEng}}</strong>
                                 </div>
                                 <div class="user-details">
-                                    <span>Father's Name</span><strong>San Antonio</strong>
+                                    <span>Father Name in Eglish</span><strong>{{appDetails?.personalDetails?.fatherNameEng}}</strong>
                                 </div>
                             </div>
                             <div class="col-6">
                                 <div class="user-details">
-                                    <span>Gender</span><strong>Male</strong>
+                                    <span>IQAMA No / National ID</span><strong>{{appDetails?.personalDetails?.nationalId}}</strong>
+                                </div>                                
+                                <div class="user-details">
+                                    <span>Grand Father Name in Eglish</span><strong>{{appDetails?.personalDetails?.grandFatherNameEng}}</strong>
                                 </div>
                                 <div class="user-details">
-                                    <span>Email</span><strong>a&#64;a.com</strong>
+                                    <span>Last Name in Eglish</span><strong>{{appDetails?.personalDetails?.lastNameEng}}</strong>
+                                </div>
+                                
+                            </div>
+                            <div class="col-6">
+                                <div class="user-details">
+                                    <span>First Name in Arabic</span><strong>{{appDetails?.personalDetails?.firstNameLocal}}</strong>
                                 </div>
                                 <div class="user-details">
-                                    <span>Phone</span><strong>+1 546638368</strong>
+                                    <span>Grand Father Name in Arabic</span><strong>{{appDetails?.personalDetails?.grandFatherNameEng}}</strong>
+                                </div>
+                                <div class="user-details">
+                                    <span>Email</span><strong>{{appDetails?.personalDetails?.emailAddress}}</strong>
+                                </div>
+                                
+                            </div>
+                            <div class="col-6">
+                                <div class="user-details">
+                                    <span>Father Name in Arabic</span><strong>{{appDetails?.personalDetails?.fatherNameLocal}}</strong>
+                                </div>
+                                <div class="user-details">
+                                    <span>Last Name in Arabic</span><strong>{{appDetails?.personalDetails?.lastNameLocal}}</strong>
+                                </div>
+                                <div class="user-details">
+                                    <span>Phone</span><strong>{{appDetails?.personalDetails?.mobile}}</strong>
+                                </div>
+                            </div>
+                            <div class="col-6">
+                                <div class="user-details">
+                                    <span>Date Of Birth</span><strong>{{(appDetails?.personalDetails?.dateOfBirth | date: 'MM/dd/yyy')}}</strong>
                                 </div>
                             </div>
                         </div>
@@ -53,27 +82,62 @@
                                 <mat-icon>edit</mat-icon>
                             </button>
                         </div>
-                        <div class="row">
+                        <div class="row" *ngFor="let add of appDetails?.addressDetails?.applicantAddresses">
                             <div class="col-6">
                                 <div class="user-details">
-                                    <span>Address</span><strong>Apt 1, Microsoft Way</strong>
+                                    <span>Address</span><strong>{{add?.address}}</strong>
                                 </div>
                                 <div class="user-details">
-                                    <span>City</span><strong>Redmond </strong>
+                                    <span>City</span><strong>{{add?.cityName}} </strong>
                                 </div>
                                 <div class="user-details">
-                                    <span>State</span><strong>Washington</strong>
+                                    <span>State</span><strong>{{add?.provinceName}}</strong>
                                 </div>
                             </div>
                             <div class="col-6">
                                 <div class="user-details">
-                                    <span>Zip</span><strong>98052</strong>
+                                    <span>Postal Code</span><strong>{{add?.postalCode}}</strong>
                                 </div>
                                 <div class="user-details">
-                                    <span>Phone</span><strong>(425) 882-8080</strong>
+                                    <span>Home Telephone</span><strong>{{add?.homeTelephoneNumber}}</strong>
                                 </div>
                                 <div class="user-details">
-                                    <span>Email</span><strong>example&#64;example2.com</strong>
+                                    <span>Country</span><strong>{{add?.countryId}}</strong>
+                                </div>
+                            </div>
+                        </div>
+                    </mat-card-content>
+                </mat-card>
+
+                <mat-card class="mt-4">
+                    <mat-card-content class="p-0 pb-2">
+                        <div class="review-head">
+                            <h6>Educational Details</h6>
+                            <button mat-mini-fab color="primary" class="fr-fab ms-auto">
+                                <mat-icon>edit</mat-icon>
+                            </button>
+                        </div>
+                        <div class="row" *ngFor="let edu of appDetails?.educationDetails">
+                            <div class="col-6">
+                                <div class="user-details">
+                                    <span>Certificate Type</span><strong>{{edu?.certificateType}}</strong>
+                                </div>
+                                <div class="user-details">
+                                    <span>City</span><strong>{{edu?.cityName}} </strong>
+                                </div>
+                                <div class="user-details">
+                                    <span>Country</span><strong>{{edu?.countryId}}</strong>
+                                </div>
+                            </div>
+                            <div class="col-6">
+                                <div class="user-details">
+                                    <span>Grade Type</span><strong>{{edu?.gradeType}}</strong>
+                                </div>
+                                <div class="user-details">
+                                    <span>State</span><strong>{{edu?.provinceName}}</strong>
+                                </div>
+                                <div class="user-details">
+                                    <span>School</span><strong>{{edu?.schoolName}}</strong>
                                 </div>
                             </div>
                         </div>

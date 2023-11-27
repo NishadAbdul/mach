@@ -13,5 +13,6 @@ export enum ApiPaths {
   education = 'EducationDetails',
   documents = 'CheckList',
   preferences = 'ProgramPreferences',
-  additional = 'AdditionalDetails'
+  additional = 'AdditionalDetails',
+  review = 'GetApplicantDetails'
 } 

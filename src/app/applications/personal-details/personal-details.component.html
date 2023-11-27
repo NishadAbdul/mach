@@ -3,7 +3,7 @@
     <div class="col-8">
         <form [formGroup]="basicDetailsForm">
             <div class="form_cnt mt-0">
-              <h3>Tell us about yourself.</h3>
+              <h3 >Tell us about yourself.</h3>
               <p>Please fill out your personal information.</p>
           
               <span class="bold_text mt-2 d-inline-block w-100 required">Are you a Soudi National?</span>
@@ -104,10 +104,10 @@
                 <div class="col-lg-4 col-sm-5">
                   <mat-form-field class="w-100">
                     <mat-label>Date of Birth</mat-label>
-                    <input matInput [matDatepicker]="dob" formControlName="dateofBirth">
+                    <input matInput [matDatepicker]="dob" formControlName="dateOfBirth">
                     <mat-datepicker-toggle matIconSuffix [for]="dob"></mat-datepicker-toggle>
                     <mat-datepicker #dob></mat-datepicker>
-                    <mat-error *ngIf="basicDetailsForm.controls['dateofBirth']?.hasError('required')">Enter Date of Birth</mat-error>
+                    <mat-error *ngIf="basicDetailsForm.controls['dateOfBirth']?.hasError('required')">Enter Date of Birth</mat-error>
                   </mat-form-field>
                 </div>
                 <span class="bold_text mt-3 d-inline-block w-100 required">What is your gender?</span>

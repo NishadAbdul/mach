@@ -38,15 +38,15 @@ export class PersonalDetailsComponent {
       lastNameEng: data?.lastNameEng,
       fatherNameEng: data?.fatherNameEng,
       grandFatherNameEng: data?.grandFatherNameEng,
-      dateofBirth: data?.dateofBirth,
+      dateOfBirth: data?.dateOfBirth,
       gender: data?.gender,
       firstNameLocal: data?.firstNameLocal,
       lastNameLocal: data?.lastNameLocal,
       fatherNameLocal: data?.fatherNameLocal,
       grandFatherNameLocal: data?.grandFatherNameLocal,
       isdCode: data?.isdCode,
-      mobile: data?.primaryMobileNo,
-      emailAddress: data?.primaryEmailId,
+      mobile: data?.mobile,
+      emailAddress: data?.emailAddress,
     })
   }
 
@@ -59,7 +59,7 @@ export class PersonalDetailsComponent {
       lastNameEng: new FormControl<string>('', Validators.required),
       fatherNameEng: new FormControl<string>('', Validators.required),
       grandFatherNameEng: new FormControl<string>('', Validators.required),
-      dateofBirth: new FormControl<string>('', Validators.required),
+      dateOfBirth: new FormControl<string>('', Validators.required),
       gender: new FormControl<boolean>(true, Validators.required),
       firstNameLocal: new FormControl<string>('', [Validators.required, Validators.pattern('[\u0600-\u06FF]*')]),
       lastNameLocal: new FormControl<string>('', [Validators.required, Validators.pattern('[\u0600-\u06FF]*')]),

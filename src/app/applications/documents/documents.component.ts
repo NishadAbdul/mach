@@ -51,7 +51,9 @@ export class DocumentsComponent {
       isUploaded: new FormControl<boolean>(false),
       fileName: new FormControl<string | null>(""),
       fileData: new FormControl<string | null>(""),
-      displayOrder: new FormControl<number | null>(0)
+      displayOrder: new FormControl<number | null>(0),
+      checklistEngName: new FormControl<string | null>(""),
+      checklistRecId: new FormControl<number>(0)
     })
   }
 

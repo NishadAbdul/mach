@@ -303,7 +303,7 @@ h4 {
         background: $sidebar_bg;
         flex-direction: column;
         position: relative;
-        padding: 30px;
+        padding: 15px 30px;
         height: 100%;
 
         .footer_cnt {
@@ -583,7 +583,7 @@ h4 {
             display: inline-flex;
             height: 47px;
             align-items: center;
-            
+            color: $primary_color;
 
             .mat-icon {
                 font-size: 2rem;
@@ -930,7 +930,7 @@ h4 {
         margin-left: 10%;
     }
     span {
-        min-width: 100px;
+        min-width: 175px;
     }
 }
 .review-head {
@@ -1028,6 +1028,27 @@ h4 {
 }
 .ar {
     direction: rtl;
+    .mat-mdc-dialog-container {
+        .dialog_title {
+            padding: 20px 30px 0 10px !important;
+            .close_btn {
+                margin-left: unset !important;
+                margin-right: auto !important;
+            }
+        }
+        direction: rtl !important;
+    }
+    .page_wrp {
+        padding: 30px 30px 30px 0px !important;
+    } 
+    .main_wrp.show_menu {
+        padding-right: 60px !important;
+        padding-left: unset !important;
+    }
+    .nav_wrp {
+        right: 0 !important;
+        left: unset !important;
+    }
     .header_wrp .contact {
         margin-right: auto;
         margin-left: unset !important;

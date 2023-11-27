@@ -4,6 +4,7 @@ import { Router } from '@angular/router';
 import { PersonalDetailsService } from '../personal-details/services/personal-details.service';
 import { EducationServiceService } from './services/education.service';
 import { MatTableDataSource } from '@angular/material/table';
+import { AddressService } from '../address-details/services/address.service';
 
 @Component({
   selector: 'app-educational-details',
@@ -12,21 +13,28 @@ import { MatTableDataSource } from '@angular/material/table';
 })
 export class EducationalDetailsComponent {
   public educationalDetailsForm !: FormGroup;
-  public displayedColumns: string[] = ['exam', 'scoringMethodology', 'score', 'weightage', 'date', 'year'];
+  public displayedColumns: string[] = ['countryId', 'cityName', 'grade', 'schoolName', 'graduationYear', 'certificateType'];
   public dataSource = new MatTableDataSource();
-  masterData: any;
+  countryList: any = [];
   constructor(private router: Router,
-    private newUserService: PersonalDetailsService,
+    private newUserService: AddressService,
     private educationService: EducationServiceService) {}
 
   ngOnInit() {
     this.formBuilder();
     this.newUserService.getMasterData().subscribe((data: any) => {
-      this.masterData = data;
+      if (data?.countryData?.length > 0)
+        this.countryList = data?.countryData;
     });
     this.educationService.getEducationDetails().subscribe((response: any) => {
       this.dataSource.data = response;
     })
+  }
+
+  getCountryNameById(id: any) {
+    let found = this.countryList.find((country: any) => country.countryRecId === id);
+    let countryName = found ? found.countryName : 'n/a';
+    return countryName;
   }
 
   formBuilder() {

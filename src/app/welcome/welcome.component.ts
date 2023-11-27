@@ -11,6 +11,8 @@ import { checkEmailAddressPattern } from '../core/utilities/utils';
 import { DomSanitizer } from '@angular/platform-browser';
 import { environment } from '../../environments/environment';
 import { AppState } from '../app.service';
+import { TranslateModule } from '@ngx-translate/core';
+import { CoreModule } from '../core/core.module';
 
 @Component({
   selector: 'app-home',
@@ -26,6 +28,8 @@ import { AppState } from '../app.service';
     NgOptimizedImage    ,
     NgxMaskDirective,
     NgxMaskPipe,
+    CoreModule,
+    TranslateModule
   ],
 })
 export class WelcomeComponent {

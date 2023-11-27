@@ -27,11 +27,7 @@ export class DefaultComponent implements OnInit {
       if (this.router.url !== '/home/new-user/guidlines' && currentStep > 0 && this.stepIndex === 0) {
         this.stepIndex = currentStep;
       }
-      
-  }
-
-  ngOnInit(): void {
-    this.router.events.pipe(filter((event: any) => event instanceof NavigationEnd),
+      this.router.events.pipe(filter((event: any) => event instanceof NavigationEnd),
       map(() => this.activatedRoute),
       map((route: any) => {
         while (route.firstChild) route = route.firstChild;
@@ -43,6 +39,11 @@ export class DefaultComponent implements OnInit {
       this.stepIndex = event['ApplicationProgress'];
       this.appState.setSharedObj('resumeStep', this.stepIndex);
     });
+      
+  }
+
+  ngOnInit(): void {
+    
   }
 
 

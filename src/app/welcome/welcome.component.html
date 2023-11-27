@@ -4,22 +4,15 @@
       <img ngSrc="assets/images/banner.webp" sizes="100vw" priority="eager" fill alt="img" />
     </div>
     <div class="banner_cnt_main">
-      <header class="header_wrp ">
-        <div class="logo">
-          <img src="assets/images/logo.webp" class="brand" alt="img" />
-        </div>
-        <div class="contact">
-          <button mat-stroked-button color="accent" class="secondary_outline_btn">English</button>
-        </div>
-      </header>
+      <app-header></app-header>
     
       <div class="welcome_cnt_wrp">
         <div class="welcome_cnt">
           <h3 translate>Welcome to the Admission Portal of</h3>
-          <h2 translate>Mohammed Al-Mana College<br /> for Medical Sciences</h2>
+          <h2 translate>Mohammed Al-Mana College for Medical Sciences - KSA</h2>
           <div class="btn_row mt-4">
-            <button mat-stroked-button class="outline_btn primary me-3" color="primary" (click)="openModal(loginModal)">Login</button>
-            <button mat-stroked-button class="outline_btn" routerLink="/home/new-user/guidlines">Apply Now</button>
+            <button mat-stroked-button class="outline_btn primary me-3" color="primary" (click)="openModal(loginModal)"><span translate>Login</span></button>
+            <button mat-stroked-button class="outline_btn" routerLink="/home/new-user/guidlines"><span translate>Apply Now</span></button>
           </div>
           
         </div>
@@ -32,13 +25,13 @@
   
   <section class="home_cnt_wrp">
     <div class="home_cnt">
-      <h1>About MACHS</h1>
-      <p>Mohammed Al-Mana College for Medical Sciences (MACHS), situated in the Eastern Province is one of the higher education institutions that is specialized in health and applied vocational training in the Kingdom of Saudi Arabia. MACHS is a part of Al-Mana Group of Hospitals. Since 1949, Al-Mana General Hospital (AGH) has been dedicated to bring standard-setting health care</p>
-      <p>MACHS seeks to promote the educational process for various health disciplines by following up with the most developed and updated programs to establish a distinctive quality standard for health education and its outcomes</p>
-      <p>n 2003, an academic collaboration and partnership with both the American University of Beirut, Lebanon and the University of Oregon, United States of America was considered to be the most important characteristic of the level of performance, quality of outputs, and educational and academic programs of the college</p>
-      <p>It was in the same year when the college received the preliminary approval to operate from the Ministry of Education (MOE) under the initial license number 20579</p>
-      <p>MACHS has expanded in a relatively short span of time to include 6 departments offering diverse academic programs (majors) at the bachelor level</p>
-      <p>There are currently more than 1,300 students enrolled at the college with academic instructions delivered by more than 100 faculty members having diverse international experience and renowned stature</p>
+      <h1 transate>About MACHS</h1>
+      <p translate>Mohammed Al-Mana College for Medical Sciences (MACHS), situated in the Eastern Province is one of the higher education institutions that is specialized in health and applied vocational training in the Kingdom of Saudi Arabia. MACHS is a part of Al-Mana Group of Hospitals. Since 1949, Al-Mana General Hospital (AGH) has been dedicated to bring standard-setting health care</p>
+      <p translate>MACHS seeks to promote the educational process for various health disciplines by following up with the most developed and updated programs to establish a distinctive quality standard for health education and its outcomes</p>
+      <p translate>In 2003, an academic collaboration and partnership with both the American University of Beirut, Lebanon and the University of Oregon, United States of America was considered to be the most important characteristic of the level of performance, quality of outputs, and educational and academic programs of the college</p>
+      <p translate>It was in the same year when the college received the preliminary approval to operate from the Ministry of Education (MOE) under the initial license number 20579</p>
+      <p translate>MACHS has expanded in a relatively short span of time to include 6 departments offering diverse academic programs (majors) at the bachelor level</p>
+      <p translate>There are currently more than 1,300 students enrolled at the college with academic instructions delivered by more than 100 faculty members having diverse international experience and renowned stature</p>
     </div>
     
   </section>
@@ -47,7 +40,7 @@
   
   <ng-template #loginModal>
     <div class="dialog_title">
-      <h2>Login!</h2>
+      <h2 translate>Login<span>!</span></h2>
       <button mat-button class="close_btn" (click)="closeModals()">
         <mat-icon>close</mat-icon>
       </button>
@@ -71,7 +64,7 @@
               <mat-error *ngIf="loginForm.get('password')?.hasError('required')">Password is required</mat-error>
             </mat-form-field>
             <a href="javascript:void(0)" (click)="dialogRef.close();openModal(forgotModal)" class="d-flex mb-4 ms-1">Forgot Password?</a>
-            <button mat-raised-button type="button" color="primary" class="primary_button mx-auto d-flex w-50 mb-4" (click)="loginUser()">Login<mat-icon class="md-22" iconPositionEnd>chevron_right</mat-icon></button>
+            <button mat-raised-button type="button" color="primary" class="primary_button mx-auto d-flex w-50 mb-4" (click)="loginUser()"><span translate>Login</span><mat-icon class="md-22" iconPositionEnd>chevron_right</mat-icon></button>
           </div>
     
         </div>
